@@ -16,6 +16,11 @@ Scoring follows ESPN's default points league (editable in `src/config.py`).
    - efficiency (fantasy points per minute) and consistency (std. dev.)
    - schedule context: rest days, back-to-backs, home/away
    - opponent defense: fantasy points the opponent allowed over its last 20 games
+   - **teammate absences**: the fantasy points usually produced by rotation
+     teammates who are out tonight, and how that compares to the team's last
+     10 games. When a star sits, the remaining players pick up his shots.
+     Absences come from box scores in training (a regular missing from his
+     team's box score was out) and from the injury report when predicting.
 3. **Model**: a gradient-boosted tree regressor (scikit-learn) predicts
    fantasy points for each game.
 4. **Weekly projection**: per-game predictions summed over each team's games that
@@ -42,12 +47,18 @@ The model trains on 2021-22 through 2024-25 and is tested on the full 2025-26
 season, which it never saw. It's compared against the baselines a fantasy
 manager would use by eye:
 
-| Approach | MAE per game (FP) |
-|---|---|
-| Last 10 games average | 10.04 |
-| Season average | 10.03 |
-| Ridge regression | 9.77 |
-| **Gradient boosting** | **9.65** |
+| Approach | MAE, all games | MAE, key teammate newly out |
+|---|---|---|
+| Last 10 games average | 10.04 | 10.98 |
+| Season average | 10.03 | 11.12 |
+| Ridge regression | 9.62 | 10.20 |
+| Gradient boosting, no absence features | 9.65 | 10.71 |
+| **Gradient boosting** | **9.49** | **10.04** |
+
+"Key teammate newly out" means teammates missing 40+ more fantasy points than
+usual (3,838 of 26,547 test games). Without the absence features the model
+under-projected players in those games by 5.0 points on average; with them,
+by 0.9.
 
 Single games are noisy (a star can score 30 or 90), so per-game error stays
 high for any method. What matters for fantasy is ranking players over a week,
@@ -69,6 +80,15 @@ teams and roles faster than recent-form features can catch up.
   average is blank. Gradient-boosted trees send all blanks down one branch, which
   lumped stars in with bench players. Filling it with last season's average
   brought opening-night projections for stars from 41.8 to 46.2 FP (actual: 47.3).
+- **A leak in the absence feature.** The first version filled each team's
+  first game of a season with that season's *final* 10-game absence average,
+  which is information from the future. Caught before training; only unplayed
+  games are filled now.
+- **Training vs. prediction mismatch.** Training first counted every player
+  missing from a box score, including deep-bench players benched by the coach.
+  Those never appear on an injury report, so at prediction time every game
+  would have looked unusually healthy. Only rotation players (15+ minutes)
+  count now, in both places.
 
 ## Usage
 
@@ -91,7 +111,8 @@ python -m src.injuries                     # view the current injury report
 
 - **Injury report quality**: ESPN's return dates are estimates and are
   sometimes stale. Check the notes (`python -m src.injuries`) for key players.
-- **Teammate absences**: when a star sits, teammates' usage rises. This isn't
-  modelled yet.
+- **Season-long absences in training**: a player hurt before his team's first
+  game never appears in that season's box scores, so training can't count him
+  as missing.
 - **Early season**: with few games played, the model leans on last season's
   numbers, so it's slow to catch new roles (trades, rookies).

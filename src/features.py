@@ -16,8 +16,18 @@ FEATURES = [
     "fp_per_min_last10", "fp_std_last10",
     "games_played", "rest_days", "back_to_back", "home",
     "opp_fp_allowed",
+    "missing_fp", "missing_fp_delta",
 ]
 TARGET = "FP"
+
+# A teammate counts as "missing" for this many team games after his last
+# appearance. Beyond that, his absence is already reflected in teammates'
+# recent stats (and he may have been waived).
+MAX_ABSENCE_GAMES = 20
+# Only rotation players count. Deep-bench players who sit by coach's decision
+# aren't on the injury report, so counting them in training wouldn't match
+# what we can know when predicting.
+MIN_ROTATION_MINUTES = 15
 
 
 def fantasy_points(df: pd.DataFrame) -> pd.Series:
@@ -96,6 +106,83 @@ def _add_opponent_defense(df: pd.DataFrame) -> pd.DataFrame:
     return df.drop(columns="opp_latest")
 
 
+def _add_teammate_absences(df: pd.DataFrame) -> pd.DataFrame:
+    """Fantasy points normally produced by teammates who sit out each game.
+
+    Box scores only list players who played, so a regular who is missing
+    from his team's box score was out. When a big contributor sits, the
+    remaining players pick up his shots and minutes.
+
+    missing_fp:       usual FP of this team's absent regulars tonight
+    missing_fp_delta: missing_fp vs. the team's average over its last 10 games
+                      (a new absence matters more than a month-long one)
+    """
+    played = df[df["FP"].notna()]
+    team_games = (
+        played[["SEASON", "TEAM_ABBREVIATION", "GAME_ID", "GAME_DATE"]]
+        .drop_duplicates().sort_values("GAME_DATE")
+    )
+    team_games["game_num"] = team_games.groupby(["SEASON", "TEAM_ABBREVIATION"]).cumcount()
+
+    # Each player's season average *after* each game he played: the "usual"
+    # production a teammate would lose if he sat out a later game.
+    p = played[["PLAYER_ID", "SEASON", "TEAM_ABBREVIATION", "GAME_ID", "GAME_DATE", "FP", "MIN"]]
+    p = p.sort_values("GAME_DATE")
+    by_player = p.groupby(["PLAYER_ID", "SEASON"])
+    p = p.assign(usual_fp=by_player["FP"].transform(lambda s: s.expanding().mean()),
+                 usual_min=by_player["MIN"].transform(lambda s: s.expanding().mean()))
+    p = p.merge(team_games[["TEAM_ABBREVIATION", "GAME_ID", "game_num"]],
+                on=["TEAM_ABBREVIATION", "GAME_ID"])
+
+    # A stint = a player's time on one team in one season. It starts at his
+    # first game for the team and ends when he first plays for another team.
+    stints = (
+        p.groupby(["PLAYER_ID", "SEASON", "TEAM_ABBREVIATION"], as_index=False)
+        .agg(start_num=("game_num", "min"), start_date=("GAME_DATE", "min"))
+        .sort_values("start_date")
+    )
+    stints["end_date"] = stints.groupby(["PLAYER_ID", "SEASON"])["start_date"].shift(-1)
+
+    # Every team game during each stint, whether or not the player played
+    grid = stints.merge(team_games, on=["SEASON", "TEAM_ABBREVIATION"])
+    grid = grid[(grid["game_num"] >= grid["start_num"]) &
+                (grid["end_date"].isna() | (grid["GAME_DATE"] < grid["end_date"]))]
+    grid = grid.merge(p[["PLAYER_ID", "GAME_ID", "usual_fp", "usual_min"]],
+                      on=["PLAYER_ID", "GAME_ID"], how="left")
+    grid = grid.sort_values(["PLAYER_ID", "SEASON", "TEAM_ABBREVIATION", "game_num"])
+
+    grid["played"] = grid["usual_fp"].notna()
+    stint_key = [grid["PLAYER_ID"], grid["SEASON"], grid["TEAM_ABBREVIATION"]]
+    # For missed games, carry forward his averages as of his last appearance
+    grid[["usual_fp", "usual_min"]] = grid.groupby(stint_key)[["usual_fp", "usual_min"]].ffill()
+    last_played = grid["game_num"].where(grid["played"]).groupby(stint_key).ffill()
+    absent = (~grid["played"]
+              & (grid["game_num"] - last_played <= MAX_ABSENCE_GAMES)
+              & (grid["usual_min"] >= MIN_ROTATION_MINUTES))
+
+    missing = grid[absent].groupby(["TEAM_ABBREVIATION", "GAME_ID"])["usual_fp"].sum()
+    team_games = team_games.merge(missing.rename("missing_fp").reset_index(),
+                                  on=["TEAM_ABBREVIATION", "GAME_ID"], how="left")
+    team_games["missing_fp"] = team_games["missing_fp"].fillna(0)
+    team_games = team_games.sort_values("GAME_DATE")
+    by_team = team_games.groupby(["SEASON", "TEAM_ABBREVIATION"])["missing_fp"]
+    team_games["missing_fp_last10"] = by_team.transform(
+        lambda s: s.shift(1).rolling(10, min_periods=1).mean())
+
+    df = df.merge(team_games[["TEAM_ABBREVIATION", "GAME_ID", "missing_fp", "missing_fp_last10"]],
+                  on=["TEAM_ABBREVIATION", "GAME_ID"], how="left")
+
+    # Future games: missing_fp comes from the injury report (see predict_week),
+    # and the baseline is the team's most recent 10-game average.
+    latest = (by_team.apply(lambda s: s.tail(10).mean())
+              .rename("last10_latest").reset_index())
+    df = df.merge(latest, on=["SEASON", "TEAM_ABBREVIATION"], how="left")
+    future = df["FP"].isna()
+    df.loc[future, "missing_fp_last10"] = df.loc[future, "last10_latest"]
+    df["missing_fp_delta"] = df["missing_fp"] - df["missing_fp_last10"]
+    return df.drop(columns="last10_latest")
+
+
 def _next_season(season: str) -> str:
     start = int(season[:4]) + 1
     return f"{start}-{str(start + 1)[-2:]}"
@@ -108,4 +195,5 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
     df = _add_game_context(df)
     df = _add_player_form(df)
     df = _add_opponent_defense(df)
+    df = _add_teammate_absences(df)
     return df.sort_values(["GAME_DATE", "PLAYER_ID"]).reset_index(drop=True)

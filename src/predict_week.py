@@ -15,7 +15,7 @@ from nba_api.stats.endpoints import commonallplayers, scheduleleaguev2
 
 from src.config import CURRENT_SEASON, MODELS_DIR, REPORTS_DIR
 from src.data import load_all
-from src.features import FEATURES, build_features
+from src.features import FEATURES, MAX_ABSENCE_GAMES, MIN_ROTATION_MINUTES, build_features
 from src.injuries import apply_injuries, get_injuries
 
 
@@ -73,14 +73,16 @@ def project_week(start: date, use_injuries: bool = True) -> pd.DataFrame:
     form_cols = [c for c in FEATURES if c.startswith(("fp_", "min_")) or c == "games_played"]
     upcoming[form_cols] = upcoming.groupby("PLAYER_ID")[form_cols].transform("first")
 
-    model = joblib.load(MODELS_DIR / "fp_model.joblib")
-    upcoming["proj_fp"] = model.predict(upcoming[FEATURES])
-
-    # Weight each game by the chance the player actually plays it
     if use_injuries:
         upcoming = apply_injuries(upcoming, get_injuries(), date.today())
     else:
         upcoming = upcoming.assign(status=None, return_date=pd.NaT, injury="", play_prob=1.0)
+    upcoming = _add_missing_teammates(upcoming, history)
+
+    model = joblib.load(MODELS_DIR / "fp_model.joblib")
+    upcoming["proj_fp"] = model.predict(upcoming[FEATURES])
+
+    # Weight each game by the chance the player actually plays it
     upcoming["exp_fp"] = upcoming["proj_fp"] * upcoming["play_prob"]
 
     out = (
@@ -98,6 +100,28 @@ def project_week(start: date, use_injuries: bool = True) -> pd.DataFrame:
     out = out.drop(columns=["status", "return_date", "injury_type"])
     out.index += 1
     return out.round(1)
+
+
+def _add_missing_teammates(upcoming: pd.DataFrame, history: pd.DataFrame) -> pd.DataFrame:
+    """Fill the teammate-absence features for future games from the injury report.
+
+    Mirrors the training definition: rotation players who have played within
+    the team's last MAX_ABSENCE_GAMES games. A player with a 25% chance of
+    sitting counts as 25% of his usual production missing.
+    """
+    last_game = history.groupby("PLAYER_ID")["GAME_DATE"].max()
+    team_dates = history[["TEAM_ABBREVIATION", "GAME_DATE"]].drop_duplicates()
+    cutoff = team_dates.groupby("TEAM_ABBREVIATION")["GAME_DATE"].apply(
+        lambda s: s.nlargest(MAX_ABSENCE_GAMES).min())
+
+    counts = (
+        (upcoming["PLAYER_ID"].map(last_game) >= upcoming["TEAM_ABBREVIATION"].map(cutoff))
+        & (upcoming["min_season"] >= MIN_ROTATION_MINUTES)
+    )
+    lost = (1 - upcoming["play_prob"]) * upcoming["fp_season"] * counts
+    upcoming["missing_fp"] = lost.groupby([upcoming["TEAM_ABBREVIATION"], upcoming["GAME_ID"]]).transform("sum")
+    upcoming["missing_fp_delta"] = upcoming["missing_fp"] - upcoming["missing_fp_last10"]
+    return upcoming
 
 
 def _injury_note(status, injury_type, return_date) -> str:

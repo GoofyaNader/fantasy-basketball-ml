@@ -1,6 +1,22 @@
 {
-  "Baseline: last 10 games avg": 10.040327457561045,
-  "Baseline: season avg": 10.026433355617941,
-  "Ridge regression": 9.77495781226269,
-  "Gradient boosting": 9.645700162264333
+  "Baseline: last 10 games avg": {
+    "mae": 10.040327457561045,
+    "mae_key_teammate_out": 10.983532366394533
+  },
+  "Baseline: season avg": {
+    "mae": 10.026433355617941,
+    "mae_key_teammate_out": 11.115502761792659
+  },
+  "Ridge regression": {
+    "mae": 9.621384732123861,
+    "mae_key_teammate_out": 10.20315463640835
+  },
+  "GBM without absence features": {
+    "mae": 9.645700162264333,
+    "mae_key_teammate_out": 10.71323054852469
+  },
+  "Gradient boosting": {
+    "mae": 9.485503491502476,
+    "mae_key_teammate_out": 10.041136854556871
+  }
 }

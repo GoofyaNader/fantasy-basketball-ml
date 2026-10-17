@@ -35,31 +35,48 @@ def main():
     X_test, y_test = test[FEATURES], test[TARGET]
     print(f"Train: {len(train):,} player-games | Test ({TEST_SEASON}): {len(test):,}")
 
+    # Games where a key teammate newly sat: where absence features should help
+    big_absence = (test["missing_fp_delta"] > 40).to_numpy()
+    print(f"Test games with a key teammate newly out: {big_absence.sum():,}")
+
     results = {}
 
+    def score(name, pred):
+        pred = np.asarray(pred)
+        results[name] = {
+            "mae": mean_absolute_error(y_test, pred),
+            "mae_key_teammate_out": mean_absolute_error(y_test[big_absence], pred[big_absence]),
+        }
+
     # Baselines: what a casual fantasy player might do by eye
-    results["Baseline: last 10 games avg"] = mean_absolute_error(y_test, test["fp_last10"])
-    season_avg = test["fp_season"].fillna(test["fp_prev_season"]).fillna(test["fp_last10"])
-    results["Baseline: season avg"] = mean_absolute_error(y_test, season_avg)
+    score("Baseline: last 10 games avg", test["fp_last10"])
+    score("Baseline: season avg", test["fp_season"])
 
     ridge = make_pipeline(SimpleImputer(), StandardScaler(), Ridge())
     ridge.fit(X_train, y_train)
-    results["Ridge regression"] = mean_absolute_error(y_test, ridge.predict(X_test))
+    score("Ridge regression", ridge.predict(X_test))
 
-    gbm = HistGradientBoostingRegressor(
-        max_iter=400, learning_rate=0.05, max_leaf_nodes=31,
-        loss="absolute_error", random_state=42,
-    )
-    gbm.fit(X_train, y_train)
+    def make_gbm():
+        return HistGradientBoostingRegressor(
+            max_iter=400, learning_rate=0.05, max_leaf_nodes=31,
+            loss="absolute_error", random_state=42,
+        )
+
+    # Ablation: the same model without the teammate-absence features
+    no_absence = [f for f in FEATURES if not f.startswith("missing_fp")]
+    score("GBM without absence features", make_gbm().fit(train[no_absence], y_train).predict(test[no_absence]))
+
+    gbm = make_gbm().fit(X_train, y_train)
     gbm_pred = gbm.predict(X_test)
-    results["Gradient boosting"] = mean_absolute_error(y_test, gbm_pred)
+    score("Gradient boosting", gbm_pred)
 
-    print("\nMean absolute error per game (lower is better):")
-    for name, mae in results.items():
-        print(f"  {name:<30} {mae:6.2f} FP")
+    print("\nMean absolute error per game in fantasy points (lower is better):")
+    print(f"  {'':<30} {'all games':>10} {'key teammate out':>18}")
+    for name, r in results.items():
+        print(f"  {name:<30} {r['mae']:10.2f} {r['mae_key_teammate_out']:18.2f}")
 
     # Retrain the best model on everything (incl. test season) for live use
-    final = HistGradientBoostingRegressor(**gbm.get_params())
+    final = make_gbm()
     full = df[df["SEASON"].isin(TRAIN_SEASONS + [TEST_SEASON])]
     final.fit(full[FEATURES], full[TARGET])
 
