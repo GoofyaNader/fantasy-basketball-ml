@@ -4,6 +4,7 @@ Usage:
     python -m src.predict_week                     # the coming Mon-Sun week
     python -m src.predict_week --start 2026-10-20  # any week
     python -m src.predict_week --players "LeBron James" "Jalen Brunson"
+    python -m src.predict_week --no-injuries       # assume everyone is healthy
 """
 import argparse
 from datetime import date, timedelta
@@ -15,6 +16,7 @@ from nba_api.stats.endpoints import commonallplayers, scheduleleaguev2
 from src.config import CURRENT_SEASON, MODELS_DIR, REPORTS_DIR
 from src.data import load_all
 from src.features import FEATURES, build_features
+from src.injuries import apply_injuries, get_injuries
 
 
 def get_schedule() -> pd.DataFrame:
@@ -46,7 +48,7 @@ def next_monday(today: date) -> date:
     return today + timedelta(days=(7 - today.weekday()) % 7)
 
 
-def project_week(start: date) -> pd.DataFrame:
+def project_week(start: date, use_injuries: bool = True) -> pd.DataFrame:
     end = start + timedelta(days=7)
     history = load_all()
     schedule = get_schedule()
@@ -74,16 +76,35 @@ def project_week(start: date) -> pd.DataFrame:
     model = joblib.load(MODELS_DIR / "fp_model.joblib")
     upcoming["proj_fp"] = model.predict(upcoming[FEATURES])
 
+    # Weight each game by the chance the player actually plays it
+    if use_injuries:
+        upcoming = apply_injuries(upcoming, get_injuries(), date.today())
+    else:
+        upcoming = upcoming.assign(status=None, return_date=pd.NaT, injury="", play_prob=1.0)
+    upcoming["exp_fp"] = upcoming["proj_fp"] * upcoming["play_prob"]
+
     out = (
         upcoming.groupby(["PLAYER_NAME", "TEAM_ABBREVIATION"])
-        .agg(games=("GAME_ID", "count"), proj_per_game=("proj_fp", "mean"),
-             proj_week=("proj_fp", "sum"), last10_avg=("fp_last10", "first"))
+        .agg(games=("GAME_ID", "count"), exp_games=("play_prob", "sum"),
+             proj_per_game=("proj_fp", "mean"), proj_week=("exp_fp", "sum"),
+             last10_avg=("fp_last10", "first"),
+             status=("status", "first"), return_date=("return_date", "first"),
+             injury_type=("injury", "first"))
         .reset_index()
         .sort_values("proj_week", ascending=False)
         .reset_index(drop=True)
     )
+    out["injury"] = [_injury_note(*row) for row in zip(out["status"], out["injury_type"], out["return_date"])]
+    out = out.drop(columns=["status", "return_date", "injury_type"])
     out.index += 1
     return out.round(1)
+
+
+def _injury_note(status, injury_type, return_date) -> str:
+    if pd.isna(status):
+        return ""
+    note = f"{status} - {injury_type}" if injury_type else status
+    return f"{note} (back ~{return_date:%b %d})" if pd.notna(return_date) else note
 
 
 def main():
@@ -92,9 +113,10 @@ def main():
                         help="first day of the week (YYYY-MM-DD), default: next Monday")
     parser.add_argument("--top", type=int, default=40)
     parser.add_argument("--players", nargs="*", help="only show these players (e.g. your roster)")
+    parser.add_argument("--no-injuries", action="store_true", help="assume every player is healthy")
     args = parser.parse_args()
 
-    table = project_week(args.start)
+    table = project_week(args.start, use_injuries=not args.no_injuries)
     REPORTS_DIR.mkdir(exist_ok=True)
     csv_path = REPORTS_DIR / f"projections_{args.start}.csv"
     table.to_csv(csv_path, index_label="rank")

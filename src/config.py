@@ -26,6 +26,11 @@ SCORING = {
 SEASONS = ["2021-22", "2022-23", "2023-24", "2024-25", "2025-26", "2026-27"]
 CURRENT_SEASON = SEASONS[-1]
 
+# Injury filter: chance a player suits up for a game, by situation.
+# Games before a player's expected return date always count as 0.
+GTD_PLAY_PROB = 0.75         # day-to-day / game-time decision, on or after return date
+STALE_OUT_PLAY_PROB = 0.5    # listed "Out" but the return date has already passed
+
 # Time-based split: never train on games that happen after the test games.
 TRAIN_SEASONS = ["2021-22", "2022-23", "2023-24", "2024-25"]
 TEST_SEASON = "2025-26"

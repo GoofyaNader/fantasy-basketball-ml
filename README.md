@@ -20,6 +20,21 @@ Scoring follows ESPN's default points league (editable in `src/config.py`).
    fantasy points for each game.
 4. **Weekly projection**: per-game predictions summed over each team's games that
    week. A player with 4 games often beats a better player with 2.
+5. **Injury filter**: each game is weighted by the chance the player suits up,
+   using ESPN's live injury report and each player's expected return date:
+
+   | Situation | Chance of playing |
+   |---|---|
+   | Game before expected return date | 0% |
+   | Out, no return date | 0% |
+   | Out, but return date already passed (stale report) | 50% |
+   | Day-to-day, first game on/after return date | 75% |
+   | Day-to-day, later games / scheduled rest / healthy | 100% |
+
+   An early version applied the day-to-day discount to every game in the week.
+   In preseason, ESPN lists dozens of healthy stars as "day-to-day" because
+   they're resting, and that version pushed Giannis from 14th to 52nd. The
+   discount now applies only to real injuries, and only to the first game back.
 
 ## Evaluation
 
@@ -68,12 +83,14 @@ python -m src.predict_week    # rankings for the coming Monday-Sunday week
 # During the season: refresh this season's games, then re-project
 python -m src.data --refresh
 python -m src.predict_week --players "Jalen Brunson" "Scottie Barnes"
+python -m src.predict_week --no-injuries   # assume everyone is healthy
+python -m src.injuries                     # view the current injury report
 ```
 
 ## Limitations and next steps
 
-- **Injuries**: the model assumes every player suits up. An injury report
-  filter would be the biggest practical improvement.
+- **Injury report quality**: ESPN's return dates are estimates and are
+  sometimes stale. Check the notes (`python -m src.injuries`) for key players.
 - **Teammate absences**: when a star sits, teammates' usage rises. This isn't
   modelled yet.
 - **Early season**: with few games played, the model leans on last season's

@@ -1,491 +1,491 @@
-rank,PLAYER_NAME,TEAM_ABBREVIATION,games,proj_per_game,proj_week,last10_avg
-1,Tyrese Maxey,PHI,4,48.0,192.1,41.8
-2,Luka Dončić,LAL,3,59.3,177.8,63.0
-3,Victor Wembanyama,SAS,3,54.8,164.5,68.4
-4,Joel Embiid,PHI,4,40.3,161.2,48.2
-5,Jaylen Brown,PHI,4,39.0,156.0,42.1
-6,LeBron James,PHI,4,38.1,152.3,46.9
-7,Shai Gilgeous-Alexander,OKC,3,50.6,151.7,48.5
-8,Tyrese Haliburton,IND,3,45.2,135.5,51.8
-9,VJ Edgecombe,PHI,4,32.4,129.6,36.2
-10,Kawhi Leonard,TOR,3,42.0,126.1,43.6
-11,Cade Cunningham,DET,3,41.2,123.7,42.0
-12,Jalen Johnson,ATL,3,41.1,123.4,38.4
-13,Kevin Durant,HOU,3,40.9,122.8,48.7
-14,Giannis Antetokounmpo,MIA,3,40.4,121.3,41.6
-15,Nikola Jokić,DEN,2,60.5,120.9,66.9
-16,Anthony Edwards,MIN,3,39.9,119.7,39.7
-17,Alperen Sengun,HOU,3,39.7,119.2,46.1
-18,Anthony Davis,WAS,3,39.5,118.4,42.9
-19,Scottie Barnes,TOR,3,39.2,117.6,44.5
-20,Josh Giddey,CHI,3,39.0,117.1,42.6
-21,Amen Thompson,HOU,3,39.0,117.0,47.0
-22,Kevin Porter Jr.,MIL,3,38.7,116.1,44.4
-23,Trey Murphy III,NOP,3,38.4,115.2,37.8
-24,LaMelo Ball,MIN,3,37.7,113.0,42.4
-25,Austin Reaves,LAL,3,37.6,112.8,35.1
-26,Pascal Siakam,IND,3,36.8,110.4,36.8
-27,Lauri Markkanen,UTA,3,36.8,110.3,37.1
-28,Bam Adebayo,MIA,3,36.6,109.7,43.3
-29,Jalen Brunson,NYK,3,36.5,109.4,42.1
-30,Keyonte George,UTA,3,36.4,109.2,31.2
-31,Michael Porter Jr.,BKN,3,36.1,108.4,34.7
-32,Julius Randle,BKN,3,36.1,108.3,31.9
-33,Stephen Curry,GSW,3,35.7,107.2,36.5
-34,Walker Kessler,LAL,3,35.7,107.1,34.2
-35,Cooper Flagg,DAL,3,35.6,106.9,45.4
-36,Kyrie Irving,DAL,3,34.8,104.3,45.1
-37,Nickeil Alexander-Walker,ATL,3,34.8,104.3,44.8
-38,Jalen Duren,DET,3,34.7,104.0,42.2
-39,Karl-Anthony Towns,NYK,3,34.5,103.6,40.3
-40,Zion Williamson,NOP,3,34.4,103.3,31.6
-41,Jimmy Butler III,GSW,3,34.3,102.8,40.2
-42,Andrew Nembhard,IND,3,33.8,101.5,35.6
-43,Paolo Banchero,ORL,3,33.7,101.1,33.3
-44,Ty Jerome,MEM,3,33.6,100.8,36.5
-45,Rudy Gobert,MIN,3,33.6,100.8,34.4
-46,Ryan Rollins,MIL,3,33.3,99.8,39.2
-47,Chet Holmgren,OKC,3,33.1,99.4,37.8
-48,Dyson Daniels,ATL,3,32.9,98.8,42.8
-49,Kon Knueppel,CHA,3,32.8,98.3,25.2
-50,Jaren Jackson Jr.,UTA,3,32.7,98.1,39.9
-51,Dejounte Murray,NOP,3,32.7,98.0,36.8
-52,Immanuel Quickley,TOR,3,32.5,97.5,29.3
-53,Brandon Miller,CHA,3,32.5,97.5,32.3
-54,Stephon Castle,SAS,3,32.5,97.5,38.4
-55,Onyeka Okongwu,ATL,3,32.2,96.7,28.2
-56,De'Aaron Fox,SAS,3,31.9,95.7,33.4
-57,Tyler Herro,MIL,3,31.8,95.4,34.4
-58,OG Anunoby,NYK,3,31.5,94.5,30.9
-59,Josh Hart,NYK,3,31.2,93.5,27.1
-60,Desmond Bane,ORL,3,31.1,93.4,31.7
-61,Jusuf Nurkić,UTA,3,31.1,93.3,39.5
-62,Brandon Ingram,LAC,3,31.0,93.0,33.7
-63,Darius Garland,LAC,3,31.0,92.9,34.1
-64,Domantas Sabonis,SAC,3,30.8,92.4,35.7
-65,Jalen Suggs,ORL,3,30.7,92.0,34.6
-66,Saddiq Bey,NOP,3,30.3,91.0,34.2
-67,Zach Edey,MEM,3,30.3,90.8,34.5
-68,Norman Powell,CHI,3,29.7,89.1,23.2
-69,Jeremiah Fears,NOP,3,29.7,89.0,42.4
-70,Mikal Bridges,NYK,3,29.5,88.4,24.7
-71,CJ McCollum,ATL,3,29.3,88.0,37.7
-72,Alex Sarr,WAS,3,29.2,87.6,25.9
-73,Trae Young,WAS,3,29.2,87.5,35.9
-74,RJ Barrett,TOR,3,29.1,87.2,31.3
-75,Matas Buzelis,CHI,3,28.9,86.8,32.3
-76,Jaden McDaniels,MIN,3,28.9,86.7,30.9
-77,Jamal Murray,DEN,2,42.7,85.3,51.6
-78,Bez Mbeng,MIA,3,28.0,84.0,30.5
-79,Andrew Wiggins,MIA,3,27.9,83.6,27.5
-80,Tre Jones,CHI,3,27.9,83.6,37.3
-81,Ivica Zubac,IND,3,27.8,83.4,25.1
-82,Julian Reese,NOP,3,27.7,83.2,29.6
-83,P.J. Washington,DAL,3,27.7,83.0,29.9
-84,Santi Aldama,DAL,3,27.6,82.9,28.0
-85,Jabari Smith Jr.,HOU,3,27.6,82.8,31.5
-86,Fred VanVleet,HOU,3,27.5,82.6,27.3
-87,Keegan Murray,SAC,3,27.3,82.0,23.6
-88,Donovan Mitchell,CLE,2,40.8,81.6,41.9
-89,Ayo Dosunmu,MIN,3,27.2,81.6,39.2
-90,Kyle Filipowski,UTA,3,27.1,81.4,36.2
-91,Naz Reid,CHA,3,27.0,81.0,26.0
-92,Jaime Jaquez Jr.,MIL,3,26.9,80.8,31.8
-93,Ausar Thompson,DET,3,26.9,80.8,34.5
-94,Anfernee Simons,PHI,4,20.1,80.4,23.5
-95,Devin Vassell,SAS,3,26.7,80.2,27.6
-96,Jalen Williams,OKC,3,26.7,80.2,30.7
-97,Jerami Grant,MEM,3,26.3,78.8,28.2
-98,Kelly Oubre Jr.,IND,3,26.1,78.2,27.2
-99,Kristaps Porziņģis,GSW,3,25.8,77.5,25.6
-100,James Harden,CLE,2,38.7,77.4,40.3
-101,Reed Sheppard,HOU,3,25.8,77.3,32.9
-102,Naji Marshall,DAL,3,25.7,77.2,31.3
-103,Collin Sexton,LAL,3,25.6,76.8,34.4
-104,Franz Wagner,ORL,3,25.6,76.8,22.4
-105,Moussa Diabaté,CHA,3,25.4,76.1,25.4
-106,Maxime Raynaud,SAC,3,25.3,76.0,30.9
-107,Isaiah Collier,UTA,3,25.3,75.9,31.6
-108,Derik Queen,NOP,3,25.3,75.9,31.3
-109,Brandin Podziemski,GSW,3,25.3,75.8,34.7
-110,Deni Avdija,POR,2,37.6,75.2,40.7
-111,Bilal Coulibaly,WAS,3,25.0,74.9,31.6
-112,Davion Mitchell,MIA,3,24.8,74.5,24.9
-113,Jayson Tatum,BOS,2,37.0,74.1,45.5
-114,Tobias Harris,SAS,3,24.5,73.6,32.2
-115,Deandre Ayton,WAS,3,24.5,73.4,28.6
-116,Cedric Coward,MEM,3,24.2,72.6,28.8
-117,Devin Booker,PHX,2,36.2,72.4,43.7
-118,John Collins,DET,3,24.1,72.2,24.5
-119,Bennedict Mathurin,NOP,3,23.9,71.8,21.9
-120,Myles Turner,MIL,3,23.7,71.1,25.1
-121,Jalen Slawson,IND,3,23.6,70.9,27.1
-122,Damian Lillard,POR,2,35.5,70.9,42.2
-123,Zach LaVine,SAC,3,23.6,70.7,26.5
-124,Isaiah Hartenstein,OKC,3,23.4,70.3,28.6
-125,Ajay Mitchell,OKC,3,23.4,70.2,22.9
-126,Ace Bailey,UTA,3,23.4,70.2,30.4
-127,Draymond Green,GSW,3,23.4,70.1,29.4
-128,Cam Spencer,MEM,3,23.4,70.1,26.5
-129,Rayan Rupert,PHI,4,17.5,69.9,29.4
-130,Daniel Gafford,DAL,3,23.3,69.9,32.9
-131,Wendell Carter Jr.,ORL,3,23.3,69.8,20.9
-132,Precious Achiuwa,SAC,3,23.3,69.8,29.8
-133,Moses Moody,GSW,3,23.2,69.7,31.9
-134,Jakob Poeltl,TOR,3,23.1,69.3,28.1
-135,Julian Champagnie,SAS,3,23.1,69.2,26.5
-136,Scotty Pippen Jr.,MEM,3,23.0,69.1,26.3
-137,Grayson Allen,CHA,3,23.0,68.9,21.1
-138,Cormac Ryan,MIL,3,22.9,68.8,26.5
-139,Evan Mobley,CLE,2,34.4,68.8,38.0
-140,Bobby Portis Jr.,MIA,3,22.7,68.2,29.9
-141,Sandro Mamukelashvili,LAL,3,22.4,67.2,28.2
-142,Nikola Vučević,ORL,3,22.4,67.1,20.5
-143,Jrue Holiday,POR,2,33.5,67.0,31.6
-144,Kyle Kuzma,MIL,3,22.3,66.8,21.8
-145,Nic Claxton,CHI,3,22.2,66.5,20.3
-146,Daniss Jenkins,DET,3,22.1,66.4,29.8
-147,Paul George,BOS,2,33.2,66.3,40.9
-148,Ja Morant,POR,2,33.2,66.3,36.6
-149,Aaron Nesmith,IND,3,22.1,66.2,26.5
-150,Quentin Grimes,LAL,3,22.0,65.9,20.3
-151,Coby White,CHA,3,21.8,65.3,21.6
-152,Derrick White,BOS,2,32.6,65.3,23.2
-153,Donte DiVincenzo,MIN,3,21.7,65.2,21.5
-154,Jay Huff,IND,3,21.7,65.1,28.4
-155,Dylan Harper,SAS,3,21.7,65.1,28.8
-156,Elfrid Payton,SAC,3,21.7,65.0,23.5
-157,Brice Sensabaugh,UTA,3,21.6,64.9,34.5
-158,Dominick Barlow,PHI,4,16.2,64.7,19.1
-159,Kel'el Ware,MIL,3,21.4,64.3,29.5
-160,Royce O'Neale,CHA,3,21.2,63.5,22.3
-161,Kyshawn George,WAS,3,21.1,63.4,19.3
-162,T.J. McConnell,IND,3,20.8,62.5,28.5
-163,Tari Eason,HOU,3,20.8,62.4,24.3
-164,Al Horford,GSW,3,20.8,62.3,28.9
-165,De'Anthony Melton,GSW,3,20.8,62.3,21.4
-166,Keldon Johnson,SAS,3,20.4,61.3,23.7
-167,Egor Dëmin,BKN,3,20.4,61.1,21.2
-168,Kentavious Caldwell-Pope,PHI,4,15.2,60.7,15.6
-169,Cason Wallace,OKC,3,20.2,60.7,21.0
-170,Donovan Clingan,POR,2,29.9,59.9,34.0
-171,Jamal Shead,TOR,3,19.8,59.3,23.7
-172,Leaky Black,SAC,3,19.7,59.2,18.4
-173,Kevin Huerter,DET,3,19.5,58.5,25.7
-174,Payton Pritchard,BOS,2,29.2,58.4,35.5
-175,Javon Small,MEM,3,19.4,58.3,27.1
-176,Dylan Cardwell,SAC,3,19.4,58.3,24.7
-177,Jalen Smith,CHI,3,19.4,58.2,21.9
-178,GG Jackson,MEM,3,19.4,58.2,27.1
-179,Trey Lyles,MIN,3,19.3,57.9,17.0
-180,Duncan Robinson,DET,3,19.3,57.8,25.4
-181,Marcus Smart,HOU,3,19.3,57.8,22.9
-182,Max Christie,DAL,3,19.2,57.6,18.3
-183,Jarrett Allen,CLE,2,28.8,57.5,34.5
-184,Derrick Jones Jr.,LAC,3,19.0,57.0,15.9
-185,Brandon Williams,GSW,3,18.9,56.7,25.8
-186,Day'Ron Sharpe,BKN,3,18.9,56.7,24.4
-187,Toumani Camara,POR,2,28.3,56.6,37.8
-188,Josh Minott,BKN,3,18.9,56.6,29.8
-189,Brook Lopez,LAC,3,18.8,56.5,30.6
-190,Dean Wade,PHI,4,14.1,56.2,15.6
-191,Gui Santos,GSW,3,18.7,56.2,28.1
-192,Bub Carrington,WAS,3,18.7,56.2,26.0
-193,AJ Green,MIL,3,18.7,56.1,29.7
-194,Anthony Black,ORL,3,18.6,55.9,17.2
-195,Justin Champagnie,WAS,3,18.6,55.8,25.2
-196,Pelle Larsson,MIA,3,18.5,55.5,25.3
-197,Collin Murray-Boyles,TOR,3,18.5,55.5,27.1
-198,Jaylen Wells,MEM,3,18.4,55.2,21.2
-199,Kris Dunn,LAC,3,18.3,54.8,19.0
-200,Malachi Smith,TOR,3,18.3,54.8,23.7
-201,Kennedy Chandler,PHX,2,27.3,54.5,30.6
-202,Isaiah Stewart,MEM,3,18.2,54.5,21.3
-203,Miles Bridges,PHX,2,27.2,54.4,31.0
-204,Jarace Walker,IND,3,18.1,54.2,29.0
-205,De'Andre Hunter,SAC,3,18.0,54.0,15.0
-206,DeMar DeRozan,DEN,2,26.9,53.9,30.2
-207,Dariq Whitehead,OKC,3,17.9,53.7,17.8
-208,Shaedon Sharpe,POR,2,26.8,53.7,25.8
-209,Aaron Gordon,DEN,2,26.7,53.4,27.9
-210,Taylor Hendricks,MEM,3,17.7,53.2,24.7
-211,Miles McBride,NYK,3,17.7,53.1,16.7
-212,Olivier-Maxence Prosper,MEM,3,17.7,53.0,29.5
-213,Max Strus,LAC,3,17.6,52.8,19.9
-214,Jaxson Hayes,UTA,3,17.5,52.5,28.5
-215,Ja'Kobe Walter,TOR,3,17.4,52.2,24.6
-216,Herbert Jones,NOP,3,17.4,52.1,20.3
-217,Tim Hardaway Jr.,MIA,3,17.3,52.0,18.6
-218,Dennis Schröder,CHA,3,17.1,51.2,20.0
-219,Alondes Williams,WAS,3,17.0,51.1,13.3
-220,Bones Hyland,MIN,3,17.0,51.0,26.7
-221,Will Riley,WAS,3,17.0,50.9,32.3
-222,Obi Toppin,IND,3,16.9,50.7,28.6
-223,Gary Payton II,GSW,3,16.8,50.5,27.2
-224,Luke Kornet,SAS,3,16.7,50.2,18.1
-225,Neemias Queta,BOS,2,24.9,49.9,36.2
-226,Cameron Johnson,DEN,2,24.9,49.8,32.1
-227,Ryan Kalkbrenner,CHA,3,16.5,49.6,18.4
-228,Jalen Green,PHX,2,24.8,49.5,30.8
-229,Peyton Watson,CLE,2,24.7,49.5,26.7
-230,Bryce McGowens,NOP,3,16.5,49.4,19.0
-231,Dillon Brooks,PHX,2,24.7,49.4,22.4
-232,Steven Adams,HOU,3,16.4,49.3,19.3
-233,Ziaire Williams,LAL,3,16.4,49.2,23.1
-234,Leonard Miller,CHI,3,16.3,49.0,30.1
-235,Noah Clowney,BKN,3,16.3,49.0,15.9
-236,Tristan da Silva,ORL,3,16.3,48.9,18.4
-237,Jake LaRavia,LAL,3,16.3,48.8,22.7
-238,Malik Monk,SAC,3,16.2,48.5,23.1
-239,Keon Ellis,BKN,3,16.1,48.4,19.9
-240,Kobe Brown,IND,3,16.1,48.4,24.5
-241,Paul Reed,DET,3,16.1,48.2,30.1
-242,Jonathan Kuminga,MIN,3,16.0,48.0,20.2
-243,Landry Shamet,NYK,3,16.0,48.0,12.9
-244,Cody Williams,MIN,3,15.9,47.8,29.0
-245,Tre Johnson,WAS,3,15.9,47.8,13.1
-246,Anthony Gill,WAS,3,15.9,47.7,27.3
-247,Jordan Poole,NOP,3,15.9,47.6,19.9
-248,Kyle Anderson,TOR,3,15.8,47.4,22.9
-249,Scoot Henderson,POR,2,23.6,47.3,29.2
-250,Oscar Tshiebwe,HOU,3,15.7,47.2,26.1
-251,Blake Hinson,UTA,3,15.7,47.1,22.7
-252,Yves Missi,NOP,3,15.7,47.1,23.3
-253,Pete Nance,MIL,3,15.7,47.1,20.7
-254,Rui Hachimura,LAC,3,15.7,47.1,23.0
-255,Reece Beekman,WAS,3,15.6,46.8,16.7
-256,Daeqwon Plowden,SAC,3,15.5,46.6,24.0
-257,Ousmane Dieng,MIL,3,15.4,46.2,26.5
-258,Harrison Barnes,SAS,3,15.4,46.1,15.0
-259,Jaylon Tyson,CLE,2,23.0,46.0,21.2
-260,Zaccharie Risacher,DAL,3,15.3,45.8,15.5
-261,Elijah Harkless,DET,3,15.2,45.5,24.9
-262,Collin Gillespie,PHX,2,22.8,45.5,19.4
-263,Nique Clifford,SAC,3,15.1,45.4,27.5
-264,Taurean Prince,DET,3,15.1,45.2,28.6
-265,Jordan Miller,LAC,3,15.0,45.1,23.3
-266,Chaney Johnson,BKN,3,15.0,45.1,20.1
-267,Jericho Sims,MIL,3,15.0,45.0,27.4
-268,Caris LeVert,MIL,3,15.0,44.9,18.3
-269,Danny Wolf,BKN,3,15.0,44.9,18.4
-270,Jaylin Williams,OKC,3,14.9,44.8,19.0
-271,Zach Collins,CHI,3,14.9,44.8,20.0
-272,Tyler Burton,GSW,3,14.9,44.6,22.7
-273,Jock Landale,ATL,3,14.8,44.4,20.0
-274,Walter Clayton Jr.,MEM,3,14.8,44.4,22.9
-275,Adem Bona,PHI,4,11.1,44.3,12.3
-276,Sam Merrill,CLE,2,22.1,44.2,26.2
-277,Christian Braun,DEN,2,22.1,44.2,24.6
-278,Kasparas Jakučionis,MIL,3,14.5,43.6,17.5
-279,Tristan Vukcevic,WAS,3,14.5,43.5,22.6
-280,Nolan Traore,BKN,3,14.3,42.9,24.4
-281,Isaac Okoro,CHI,3,14.3,42.9,21.8
-282,Aaron Wiggins,ATL,3,14.2,42.7,12.5
-283,Andre Drummond,NYK,3,14.2,42.6,19.1
-284,Kris Murray,MEM,3,14.1,42.3,16.2
-285,Mark Williams,PHX,2,21.1,42.3,20.7
-286,Bruce Brown,NYK,3,14.1,42.3,22.9
-287,Terance Mann,BKN,3,14.0,42.1,13.2
-288,Matisse Thybulle,LAL,3,14.0,42.0,22.3
-289,Isaiah Joe,DET,3,14.0,42.0,19.6
-290,Dereck Lively II,DAL,3,14.0,41.9,18.4
-291,Drake Powell,BKN,3,13.9,41.6,17.4
-292,Karlo Matković,NOP,3,13.7,41.2,18.0
-293,DeAndre Jordan,NOP,3,13.6,40.9,17.4
-294,Ben Sheppard,IND,3,13.6,40.9,16.9
-295,Quenton Jackson,IND,3,13.6,40.8,23.6
-296,Quinten Post,MEM,3,13.6,40.8,17.8
-297,Luguentz Dort,ATL,3,13.6,40.7,20.1
-298,Svi Mykhailiuk,UTA,3,13.6,40.7,21.3
-299,Justin Edwards,PHI,4,10.2,40.6,9.2
-300,Jordan Goodwin,PHX,2,20.2,40.4,25.6
-301,Isaiah Jackson,LAC,3,13.4,40.1,25.5
-302,Oso Ighodaro,PHX,2,20.0,40.0,24.2
-303,Ronald Holland II,DET,3,13.3,39.9,17.4
-304,Patrick Williams,CHI,3,13.3,39.9,18.0
-305,Klay Thompson,MIA,3,13.3,39.8,18.8
-306,Bradley Beal,LAC,3,13.1,39.3,19.4
-307,Ben Saraf,BKN,3,13.0,39.1,21.6
-308,John Poulakidas,DAL,3,12.8,38.5,18.9
-309,Mitchell Robinson,BOS,2,19.1,38.2,28.1
-310,Alex Caruso,OKC,3,12.7,38.1,12.6
-311,Grant Williams,CHA,3,12.7,38.1,17.3
-312,Jamir Watkins,WAS,3,12.7,38.0,22.3
-313,Goga Bitadze,ORL,3,12.6,37.9,19.3
-314,Jose Alvarado,NYK,3,12.6,37.9,18.0
-315,Johnny Furphy,IND,3,12.5,37.6,15.1
-316,Jahmai Mashack,MEM,3,12.5,37.4,20.3
-317,Kevon Looney,LAL,3,12.2,36.7,16.4
-318,Khris Middleton,WAS,3,12.2,36.6,10.0
-319,Sion James,CHA,3,12.1,36.3,15.0
-320,Georges Niang,GSW,3,12.1,36.3,12.8
-321,Robert Williams III,POR,2,18.1,36.2,21.8
-322,Charles Bassey,GSW,3,12.1,36.2,16.9
-323,Jarred Vanderbilt,LAL,3,11.9,35.6,13.9
-324,Marvin Bagley III,DEN,2,17.8,35.5,26.5
-325,Javonte Green,DET,3,11.8,35.5,19.9
-326,Simone Fontecchio,MIA,3,11.8,35.3,17.4
-327,Corey Kispert,ATL,3,11.7,35.1,12.3
-328,Jalen Wilson,ATL,3,11.7,35.1,17.7
-329,Kenrich Williams,OKC,3,11.6,34.9,10.9
-330,Micah Peavy,MEM,3,11.6,34.8,15.4
-331,Moussa Cisse,DAL,3,11.4,34.3,21.1
-332,Brandon Boston,CHI,3,11.3,33.9,11.5
-333,Pat Spencer,PHX,2,16.5,32.9,20.3
-334,Kam Jones,MIL,3,10.8,32.3,14.4
-335,Sam Hauser,BOS,2,16.0,32.1,21.2
-336,Luke Kennard,PHX,2,15.9,31.8,25.0
-337,Will Richard,GSW,3,10.6,31.8,11.3
-338,Dru Smith,MIA,3,10.5,31.6,14.7
-339,Keshon Gilbert,ATL,3,10.5,31.4,14.0
-340,Terrence Shannon Jr,MIN,3,10.4,31.1,16.5
-341,Gary Trent Jr.,MIL,3,10.4,31.1,15.2
-342,Micah Potter,POR,2,15.5,31.0,24.6
-343,Mouhamed Gueye,ATL,3,10.3,31.0,12.0
-344,Jared McCain,OKC,3,10.2,30.7,9.6
-345,Jordan Clarkson,NYK,3,10.2,30.5,12.7
-346,Clint Capela,HOU,3,10.1,30.3,15.8
-347,Buddy Hield,CHI,3,10.0,30.1,11.9
-348,Jevon Carter,ORL,3,10.0,30.0,13.7
-349,Jordan Hawkins,CHI,3,9.7,29.1,18.0
-350,Nikola Topić,OKC,3,9.7,29.0,12.5
-351,Hayden Gray,BOS,2,14.5,28.9,15.0
-352,Nick Richards,MIA,3,9.6,28.8,18.2
-353,Jaden Hardy,LAL,3,9.4,28.2,18.4
-354,Trendon Watford,NOP,3,9.4,28.2,15.8
-355,Ariel Hukporti,PHI,4,7.0,28.1,8.7
-356,KJ Martin,MIN,3,9.3,27.9,11.4
-357,Dwight Powell,DAL,3,9.3,27.8,17.0
-358,Devin Carter,BOS,2,13.8,27.7,27.7
-359,Joan Beringer,MIN,3,9.1,27.4,17.5
-360,Bogdan Bogdanović,HOU,3,9.1,27.4,7.9
-361,Trey Alexander,UTA,3,8.9,26.8,11.5
-362,Josh Okogie,UTA,3,8.9,26.8,9.5
-363,Jalen Pickett,LAC,3,8.9,26.7,7.6
-364,LJ Cryer,GSW,3,8.9,26.7,11.5
-365,Carter Bryant,SAS,3,8.9,26.7,14.9
-366,Tacko Fall,PHI,4,6.6,26.6,5.1
-367,Craig Porter Jr.,CLE,2,13.1,26.3,15.7
-368,Tidjane Salaün,CHA,3,8.7,26.2,12.4
-369,Kobe Sanders,LAC,3,8.7,26.0,19.4
-370,Jaylen Clark,MIN,3,8.5,25.6,12.3
-371,Cam Whitmore,DEN,2,12.8,25.6,17.5
-372,Dalen Terry,GSW,3,8.5,25.5,12.6
-373,Tristen Newton,SAC,3,8.5,25.4,2.7
-374,PJ Hall,CHA,3,8.4,25.1,15.1
-375,Mo Bamba,UTA,3,8.2,24.7,13.5
-376,Keshad Johnson,MIA,3,8.1,24.4,15.6
-377,James Wiseman,NYK,3,8.1,24.3,13.9
-378,Luka Garza,BOS,2,12.1,24.1,23.5
-379,Kylor Kelley,MIA,3,8.0,24.0,8.9
-380,Ryan Nembhard,DEN,2,11.9,23.9,23.9
-381,Adam Flagler,SAC,3,7.9,23.7,7.3
-382,Caleb Martin,DAL,3,7.9,23.7,11.1
-383,Baylor Scheierman,BOS,2,11.8,23.6,19.7
-384,Ben Simmons,SAC,3,7.8,23.5,9.0
-385,Orlando Robinson,CHI,3,7.7,23.2,15.4
-386,Caleb Love,PHI,4,5.7,23.0,10.2
-387,Ryan Dunn,PHX,2,11.4,22.8,20.4
-388,Asa Newell,ATL,3,7.6,22.8,11.4
-389,Vít Krejčí,POR,2,11.3,22.6,12.1
-390,Malaki Branham,ORL,3,7.4,22.2,13.3
-391,Larry Nance Jr.,IND,3,7.4,22.2,10.5
-392,Malevy Leons,GSW,3,7.4,22.2,11.5
-393,Jordan Walsh,BOS,2,11.0,22.1,16.8
-394,Mike Conley,BOS,2,10.8,21.7,16.6
-395,Bronny James,LAL,3,7.1,21.2,11.0
-396,Jamal Cain,ORL,3,7.1,21.2,17.3
-397,Brooks Barnhizer,OKC,3,7.0,20.9,7.9
-398,Jabari Walker,PHI,4,5.2,20.9,8.6
-399,Yanic Konan Niederhäuser,LAC,3,6.9,20.7,19.5
-400,Thomas Bryant,CLE,2,10.3,20.6,15.8
-401,AJ Johnson,NOP,3,6.8,20.3,8.6
-402,Haywood Highsmith,PHX,2,10.0,20.1,15.0
-403,Spencer Jones,DEN,2,10.0,19.9,15.2
-404,Enrique Freeman,MIN,3,6.6,19.9,8.8
-405,Jett Howard,DAL,3,6.5,19.6,9.5
-406,Jamaree Bouyea,PHX,2,9.7,19.4,10.6
-407,Julian Strawther,DEN,2,9.6,19.1,17.2
-408,Grant Nelson,BKN,3,6.3,19.0,11.8
-409,Josh Green,UTA,3,6.3,18.9,4.0
-410,Jae'Sean Tate,HOU,3,6.3,18.8,7.5
-411,Nikola Jović,MIA,3,6.2,18.5,6.0
-412,JD Davison,ORL,3,6.0,18.1,8.3
-413,Nae'Qwan Tomlin,CLE,2,9.1,18.1,14.5
-414,Dorian Finney-Smith,ATL,3,6.0,18.1,10.8
-415,Branden Carlson,POR,2,9.0,17.9,20.0
-416,Khaman Maluach,PHX,2,8.9,17.8,17.7
-417,Zyon Pullin,MIN,3,5.9,17.7,5.9
-418,Dillon Jones,PHI,4,4.4,17.4,9.2
-419,Tyrese Proctor,CLE,2,8.6,17.2,15.5
-420,Tyler Kolek,NYK,3,5.6,16.7,11.5
-421,Rasheer Fleming,PHX,2,8.2,16.4,12.7
-422,Mohamed Diawara,NYK,3,5.4,16.3,9.1
-423,RayJ Dennis,ATL,3,5.4,16.2,4.2
-424,Rocco Zikarsky,MIN,3,5.3,16.0,10.4
-425,Liam McNeeley,CHA,3,5.2,15.7,5.9
-426,Moritz Wagner,BKN,3,5.2,15.7,6.7
-427,Marcus Sasser,DAL,3,5.2,15.6,6.9
-428,Kobe Bufkin,NOP,3,5.2,15.6,3.6
-429,Julian Phillips,HOU,3,5.2,15.5,4.6
-430,Pacôme Dadiet,NYK,3,4.8,14.5,5.1
-431,Isaiah Crawford,HOU,3,4.7,14.2,5.4
-432,Gradey Dick,LAC,3,4.7,14.1,3.8
-433,Tolu Smith,DET,3,4.7,14.0,6.1
-434,Nathan Mensah,LAC,3,4.6,13.9,4.6
-435,Chris Mañon,LAL,3,4.6,13.9,5.1
-436,Jonathan Mogbo,SAC,3,4.6,13.9,7.5
-437,Adou Thiero,LAL,3,4.6,13.8,4.9
-438,Drew Timme,MIN,3,4.6,13.7,5.4
-439,Dalton Knecht,LAL,3,4.5,13.5,7.1
-440,David Jones Garcia,SAS,3,4.5,13.4,8.8
-441,Jeremy Sochan,POR,2,6.4,12.8,11.1
-442,Chris Livingston,WAS,3,4.2,12.6,4.2
-443,Tristan Enaruna,CLE,2,6.2,12.5,8.9
-444,Drew Peterson,CHI,3,4.1,12.4,3.5
-445,Hugo González,BOS,2,6.2,12.4,8.3
-446,Noah Penda,ORL,3,4.1,12.3,3.8
-447,Trayce Jackson-Davis,TOR,3,4.1,12.2,4.6
-448,Myron Gardner,MIA,3,4.0,12.1,6.9
-449,Jase Richardson,ORL,3,4.0,11.9,8.6
-450,Jordan McLaughlin,SAS,3,3.9,11.8,8.6
-451,Colin Castleton,ORL,3,3.9,11.7,11.8
-452,Alijah Martin,TOR,3,3.8,11.4,2.6
-453,Jonathan Isaac,ORL,3,3.7,11.2,7.8
-454,Riley Minix,CLE,2,5.5,11.1,6.7
-455,Zeke Nnaji,DEN,2,5.2,10.4,6.9
-456,Kevin McCullar Jr.,NYK,3,3.4,10.2,5.0
-457,Tyus Jones,DEN,2,5.1,10.1,5.6
-458,Duop Reath,PHX,2,4.9,9.8,6.8
-459,Sidy Cissoko,POR,2,4.8,9.6,4.8
-460,CJ Huntley,PHX,2,4.8,9.6,6.5
-461,Norchad Omier,MIN,3,3.2,9.5,6.0
-462,Isaac Jones,DET,3,3.2,9.5,3.2
-463,Kevin Knox II,ORL,3,3.1,9.4,4.0
-464,Chaz Lanier,DET,3,3.1,9.4,2.1
-465,Tre Mann,WAS,3,3.1,9.4,3.5
-466,Blake Wesley,LAC,3,3.1,9.3,4.8
-467,Emanuel Miller,DEN,2,4.6,9.1,6.0
-468,Ron Harper Jr.,BOS,2,4.5,9.1,10.5
-469,John Tonje,POR,2,4.5,8.9,5.0
-470,Jamison Battle,TOR,3,2.9,8.6,7.3
-471,Antonio Reeves,MIN,3,2.8,8.5,5.0
-472,Phillip Wheeler,PHX,2,4.2,8.3,3.0
-473,Alex Morales,ORL,3,2.8,8.3,2.5
-474,Koby Brea,PHX,2,4.1,8.2,6.8
-475,Johni Broome,MIL,3,2.7,8.1,2.1
-476,Chris Youngblood,POR,2,4.0,8.1,7.8
-477,Seth Lundy,DAL,3,2.5,7.6,1.3
-478,Amari Williams,BOS,2,3.8,7.6,2.9
-479,Jayson Kent,POR,2,3.7,7.4,5.0
-480,Harrison Ingram,UTA,3,2.4,7.1,4.8
-481,Jahmyl Telfort,LAC,3,2.3,7.0,0.1
-482,Sean Pedulla,HOU,3,2.2,6.6,3.1
-483,Vladislav Goldin,MIA,3,2.1,6.2,3.3
-484,James Johnson,IND,3,2.0,5.9,1.2
-485,DaRon Holmes II,DEN,2,2.9,5.8,5.7
-486,Noa Essengue,CHI,3,1.8,5.5,0.5
-487,Jalen Bridges,CHI,3,1.8,5.5,0.4
-488,Miye Oni,LAC,3,1.8,5.4,0.6
-489,Yang Hansen,POR,2,2.2,4.4,2.9
-490,Trevor Keels,WAS,3,1.2,3.6,1.4
+rank,PLAYER_NAME,TEAM_ABBREVIATION,games,exp_games,proj_per_game,proj_week,last10_avg,injury
+1,Tyrese Maxey,PHI,4,4.0,48.0,192.1,41.8,
+2,Luka Dončić,LAL,3,3.0,59.3,177.8,63.0,
+3,Victor Wembanyama,SAS,3,3.0,54.8,164.5,68.4,
+4,Joel Embiid,PHI,4,4.0,40.3,161.2,48.2,
+5,Jaylen Brown,PHI,4,4.0,39.0,156.0,42.1,
+6,LeBron James,PHI,4,4.0,38.1,152.3,46.9,
+7,Shai Gilgeous-Alexander,OKC,3,3.0,50.6,151.7,48.5,
+8,Tyrese Haliburton,IND,3,3.0,45.2,135.5,51.8,
+9,VJ Edgecombe,PHI,4,4.0,32.4,129.6,36.2,GTD - Rest (back ~Oct 20)
+10,Kawhi Leonard,TOR,3,3.0,42.0,126.1,43.6,GTD - Rest (back ~Oct 21)
+11,Cade Cunningham,DET,3,3.0,41.2,123.7,42.0,
+12,Jalen Johnson,ATL,3,3.0,41.1,123.4,38.4,
+13,Kevin Durant,HOU,3,3.0,40.9,122.8,48.7,
+14,Giannis Antetokounmpo,MIA,3,3.0,40.4,121.3,41.6,GTD - Rest (back ~Oct 21)
+15,Nikola Jokić,DEN,2,2.0,60.5,120.9,66.9,
+16,Anthony Edwards,MIN,3,3.0,39.9,119.7,39.7,GTD - Rest (back ~Oct 21)
+17,Alperen Sengun,HOU,3,3.0,39.7,119.2,46.1,
+18,Anthony Davis,WAS,3,3.0,39.5,118.4,42.9,
+19,Scottie Barnes,TOR,3,3.0,39.2,117.6,44.5,GTD - Rest (back ~Oct 21)
+20,Josh Giddey,CHI,3,3.0,39.0,117.1,42.6,
+21,Amen Thompson,HOU,3,3.0,39.0,117.0,47.0,
+22,Kevin Porter Jr.,MIL,3,3.0,38.7,116.1,44.4,GTD - Rest (back ~Oct 16)
+23,Trey Murphy III,NOP,3,3.0,38.4,115.2,37.8,
+24,LaMelo Ball,MIN,3,3.0,37.7,113.0,42.4,GTD - Rest (back ~Oct 21)
+25,Austin Reaves,LAL,3,3.0,37.6,112.8,35.1,
+26,Pascal Siakam,IND,3,3.0,36.8,110.4,36.8,
+27,Lauri Markkanen,UTA,3,3.0,36.8,110.3,37.1,
+28,Jalen Brunson,NYK,3,3.0,36.5,109.4,42.1,
+29,Keyonte George,UTA,3,3.0,36.4,109.2,31.2,
+30,Michael Porter Jr.,BKN,3,3.0,36.1,108.4,34.7,
+31,Julius Randle,BKN,3,3.0,36.1,108.3,31.9,
+32,Stephen Curry,GSW,3,3.0,35.7,107.2,36.5,
+33,Walker Kessler,LAL,3,3.0,35.7,107.1,34.2,
+34,Cooper Flagg,DAL,3,3.0,35.6,106.9,45.4,
+35,Kyrie Irving,DAL,3,3.0,34.8,104.3,45.1,
+36,Nickeil Alexander-Walker,ATL,3,3.0,34.8,104.3,44.8,
+37,Jalen Duren,DET,3,3.0,34.7,104.0,42.2,
+38,Karl-Anthony Towns,NYK,3,3.0,34.5,103.6,40.3,
+39,Zion Williamson,NOP,3,3.0,34.4,103.3,31.6,
+40,Andrew Nembhard,IND,3,3.0,33.8,101.5,35.6,
+41,Paolo Banchero,ORL,3,3.0,33.7,101.1,33.3,
+42,Ty Jerome,MEM,3,3.0,33.6,100.8,36.5,
+43,Rudy Gobert,MIN,3,3.0,33.6,100.8,34.4,GTD - Rest (back ~Oct 21)
+44,Bam Adebayo,MIA,3,2.8,36.6,100.5,43.3,GTD - Groin (back ~Oct 21)
+45,Ryan Rollins,MIL,3,3.0,33.3,99.8,39.2,
+46,Dyson Daniels,ATL,3,3.0,32.9,98.8,42.8,
+47,Jaren Jackson Jr.,UTA,3,3.0,32.7,98.1,39.9,
+48,Immanuel Quickley,TOR,3,3.0,32.5,97.5,29.3,GTD - Rest (back ~Oct 21)
+49,Brandon Miller,CHA,3,3.0,32.5,97.5,32.3,
+50,Stephon Castle,SAS,3,3.0,32.5,97.5,38.4,
+51,Onyeka Okongwu,ATL,3,3.0,32.2,96.7,28.2,
+52,De'Aaron Fox,SAS,3,3.0,31.9,95.7,33.4,
+53,Tyler Herro,MIL,3,3.0,31.8,95.4,34.4,
+54,OG Anunoby,NYK,3,3.0,31.5,94.5,30.9,
+55,Desmond Bane,ORL,3,3.0,31.1,93.4,31.7,
+56,Darius Garland,LAC,3,3.0,31.0,92.9,34.1,
+57,Domantas Sabonis,SAC,3,3.0,30.8,92.4,35.7,
+58,Jalen Suggs,ORL,3,3.0,30.7,92.0,34.6,
+59,Chet Holmgren,OKC,3,2.8,33.1,91.6,37.8,GTD - Quadriceps (back ~Oct 20)
+60,Saddiq Bey,NOP,3,3.0,30.3,91.0,34.2,
+61,Zach Edey,MEM,3,3.0,30.3,90.8,34.5,
+62,Kon Knueppel,CHA,3,2.8,32.8,90.4,25.2,GTD - Hamstring (back ~Oct 21)
+63,Dejounte Murray,NOP,3,2.8,32.7,90.0,36.8,GTD - Toe (back ~Oct 21)
+64,Norman Powell,CHI,3,3.0,29.7,89.1,23.2,
+65,Jeremiah Fears,NOP,3,3.0,29.7,89.0,42.4,
+66,Mikal Bridges,NYK,3,3.0,29.5,88.4,24.7,
+67,CJ McCollum,ATL,3,3.0,29.3,88.0,37.7,
+68,Alex Sarr,WAS,3,3.0,29.2,87.6,25.9,
+69,Trae Young,WAS,3,3.0,29.2,87.5,35.9,
+70,RJ Barrett,TOR,3,3.0,29.1,87.2,31.3,GTD - Rest (back ~Oct 21)
+71,Matas Buzelis,CHI,3,3.0,28.9,86.8,32.3,
+72,Jaden McDaniels,MIN,3,3.0,28.9,86.7,30.9,GTD - Rest (back ~Oct 21)
+73,Josh Hart,NYK,3,2.8,31.2,85.8,27.1,GTD - Ankle (back ~Oct 20)
+74,Jamal Murray,DEN,2,2.0,42.7,85.3,51.6,
+75,Bez Mbeng,MIA,3,3.0,28.0,84.0,30.5,
+76,Andrew Wiggins,MIA,3,3.0,27.9,83.6,27.5,
+77,Tre Jones,CHI,3,3.0,27.9,83.6,37.3,
+78,Ivica Zubac,IND,3,3.0,27.8,83.4,25.1,
+79,Julian Reese,NOP,3,3.0,27.7,83.2,29.6,
+80,P.J. Washington,DAL,3,3.0,27.7,83.0,29.9,
+81,Jabari Smith Jr.,HOU,3,3.0,27.6,82.8,31.5,
+82,Fred VanVleet,HOU,3,3.0,27.5,82.6,27.3,
+83,Keegan Murray,SAC,3,3.0,27.3,82.0,23.6,
+84,Donovan Mitchell,CLE,2,2.0,40.8,81.6,41.9,
+85,Ayo Dosunmu,MIN,3,3.0,27.2,81.6,39.2,GTD - Rest (back ~Oct 21)
+86,Naz Reid,CHA,3,3.0,27.0,81.0,26.0,
+87,Jaime Jaquez Jr.,MIL,3,3.0,26.9,80.8,31.8,
+88,Ausar Thompson,DET,3,3.0,26.9,80.8,34.5,
+89,Devin Vassell,SAS,3,3.0,26.7,80.2,27.6,
+90,Jalen Williams,OKC,3,3.0,26.7,80.2,30.7,
+91,Jerami Grant,MEM,3,3.0,26.3,78.8,28.2,GTD - Rest (back ~Oct 21)
+92,Kelly Oubre Jr.,IND,3,3.0,26.1,78.2,27.2,
+93,James Harden,CLE,2,2.0,38.7,77.4,40.3,
+94,Reed Sheppard,HOU,3,3.0,25.8,77.3,32.9,
+95,Naji Marshall,DAL,3,3.0,25.7,77.2,31.3,
+96,Santi Aldama,DAL,3,2.8,27.6,76.3,28.0,GTD - Knee (back ~Oct 21)
+97,Isaiah Collier,UTA,3,3.0,25.3,75.9,31.6,
+98,Derik Queen,NOP,3,3.0,25.3,75.9,31.3,
+99,Anfernee Simons,PHI,4,3.8,20.1,75.9,23.5,GTD - Hamstring (back ~Oct 20)
+100,Brandin Podziemski,GSW,3,3.0,25.3,75.8,34.7,
+101,Deni Avdija,POR,2,2.0,37.6,75.2,40.7,
+102,Bilal Coulibaly,WAS,3,3.0,25.0,74.9,31.6,
+103,Kyle Filipowski,UTA,3,2.8,27.1,74.8,36.2,GTD - Back (back ~Oct 21)
+104,Davion Mitchell,MIA,3,3.0,24.8,74.5,24.9,
+105,Jayson Tatum,BOS,2,2.0,37.0,74.1,45.5,GTD - Rest (back ~Oct 20)
+106,Deandre Ayton,WAS,3,3.0,24.5,73.4,28.6,
+107,Cedric Coward,MEM,3,3.0,24.2,72.6,28.8,
+108,Devin Booker,PHX,2,2.0,36.2,72.4,43.7,
+109,John Collins,DET,3,3.0,24.1,72.2,24.5,
+110,Bennedict Mathurin,NOP,3,3.0,23.9,71.8,21.9,
+111,Myles Turner,MIL,3,3.0,23.7,71.1,25.1,
+112,Jalen Slawson,IND,3,3.0,23.6,70.9,27.1,
+113,Damian Lillard,POR,2,2.0,35.5,70.9,42.2,
+114,Zach LaVine,SAC,3,3.0,23.6,70.7,26.5,
+115,Collin Sexton,LAL,3,2.8,25.6,70.5,34.4,GTD - Lower Leg (back ~Oct 21)
+116,Franz Wagner,ORL,3,2.8,25.6,70.4,22.4,GTD - Shoulder (back ~Oct 21)
+117,Isaiah Hartenstein,OKC,3,3.0,23.4,70.3,28.6,
+118,Ajay Mitchell,OKC,3,3.0,23.4,70.2,22.9,
+119,Ace Bailey,UTA,3,3.0,23.4,70.2,30.4,
+120,Draymond Green,GSW,3,3.0,23.4,70.1,29.4,
+121,Cam Spencer,MEM,3,3.0,23.4,70.1,26.5,
+122,Moussa Diabaté,CHA,3,2.8,25.4,70.0,25.4,GTD - Elbow (back ~Oct 21)
+123,Rayan Rupert,PHI,4,4.0,17.5,69.9,29.4,
+124,Daniel Gafford,DAL,3,3.0,23.3,69.9,32.9,
+125,Wendell Carter Jr.,ORL,3,3.0,23.3,69.8,20.9,
+126,Precious Achiuwa,SAC,3,3.0,23.3,69.8,29.8,
+127,Jakob Poeltl,TOR,3,3.0,23.1,69.3,28.1,GTD - Rest (back ~Oct 21)
+128,Julian Champagnie,SAS,3,3.0,23.1,69.2,26.5,
+129,Scotty Pippen Jr.,MEM,3,3.0,23.0,69.1,26.3,
+130,Cormac Ryan,MIL,3,3.0,22.9,68.8,26.5,
+131,Evan Mobley,CLE,2,2.0,34.4,68.8,38.0,
+132,Bobby Portis Jr.,MIA,3,3.0,22.7,68.2,29.9,
+133,Tobias Harris,SAS,3,2.8,24.5,67.8,32.2,GTD - Calf (back ~Oct 20)
+134,Sandro Mamukelashvili,LAL,3,3.0,22.4,67.2,28.2,
+135,Nikola Vučević,ORL,3,3.0,22.4,67.1,20.5,
+136,Kyle Kuzma,MIL,3,3.0,22.3,66.8,21.8,
+137,Daniss Jenkins,DET,3,3.0,22.1,66.4,29.8,
+138,Paul George,BOS,2,2.0,33.2,66.3,40.9,GTD - Rest (back ~Oct 20)
+139,Ja Morant,POR,2,2.0,33.2,66.3,36.6,
+140,Quentin Grimes,LAL,3,3.0,22.0,65.9,20.3,
+141,Derrick White,BOS,2,2.0,32.6,65.3,23.2,GTD - Rest (back ~Oct 20)
+142,Jay Huff,IND,3,3.0,21.7,65.1,28.4,
+143,Dylan Harper,SAS,3,3.0,21.7,65.1,28.8,
+144,Elfrid Payton,SAC,3,3.0,21.7,65.0,23.5,
+145,Brice Sensabaugh,UTA,3,3.0,21.6,64.9,34.5,
+146,Kel'el Ware,MIL,3,3.0,21.4,64.3,29.5,
+147,Royce O'Neale,CHA,3,3.0,21.2,63.5,22.3,
+148,Kyshawn George,WAS,3,3.0,21.1,63.4,19.3,
+149,Grayson Allen,CHA,3,2.8,23.0,63.2,21.1,GTD - Knee (back ~Oct 16)
+150,Tari Eason,HOU,3,3.0,20.8,62.4,24.3,
+151,Al Horford,GSW,3,3.0,20.8,62.3,28.9,GTD - Rest (back ~Oct 16)
+152,De'Anthony Melton,GSW,3,3.0,20.8,62.3,21.4,
+153,Nic Claxton,CHI,3,2.8,22.2,61.6,20.3,GTD - Hamstring (back ~Oct 21)
+154,Keldon Johnson,SAS,3,3.0,20.4,61.3,23.7,
+155,Egor Dëmin,BKN,3,3.0,20.4,61.1,21.2,
+156,Aaron Nesmith,IND,3,2.8,22.1,61.0,26.5,GTD - Hamstring (back ~Oct 21)
+157,Dominick Barlow,PHI,4,3.8,16.2,61.0,19.1,GTD - Back (back ~Oct 20)
+158,Kentavious Caldwell-Pope,PHI,4,4.0,15.2,60.7,15.6,
+159,Coby White,CHA,3,2.8,21.8,60.0,21.6,GTD - Calf (back ~Oct 21)
+160,Donovan Clingan,POR,2,2.0,29.9,59.9,34.0,
+161,Jamal Shead,TOR,3,3.0,19.8,59.3,23.7,GTD - Rest (back ~Oct 21)
+162,Leaky Black,SAC,3,3.0,19.7,59.2,18.4,
+163,Jrue Holiday,POR,2,1.8,33.5,59.0,31.6,GTD - Hand (back ~Oct 21)
+164,Kevin Huerter,DET,3,3.0,19.5,58.5,25.7,
+165,Payton Pritchard,BOS,2,2.0,29.2,58.4,35.5,GTD - Rest (back ~Oct 20)
+166,Javon Small,MEM,3,3.0,19.4,58.3,27.1,
+167,Jalen Smith,CHI,3,3.0,19.4,58.2,21.9,
+168,Trey Lyles,MIN,3,3.0,19.3,57.9,17.0,GTD - Rest (back ~Oct 21)
+169,Duncan Robinson,DET,3,3.0,19.3,57.8,25.4,
+170,Marcus Smart,HOU,3,3.0,19.3,57.8,22.9,
+171,Max Christie,DAL,3,3.0,19.2,57.6,18.3,GTD - Rest (back ~Oct 21)
+172,Jarrett Allen,CLE,2,2.0,28.8,57.5,34.5,
+173,T.J. McConnell,IND,3,2.8,20.8,57.5,28.5,GTD - Undisclosed (back ~Oct 21)
+174,Derrick Jones Jr.,LAC,3,3.0,19.0,57.0,15.9,
+175,Brandon Williams,GSW,3,3.0,18.9,56.7,25.8,
+176,Day'Ron Sharpe,BKN,3,3.0,18.9,56.7,24.4,
+177,Toumani Camara,POR,2,2.0,28.3,56.6,37.8,
+178,Josh Minott,BKN,3,3.0,18.9,56.6,29.8,
+179,Brook Lopez,LAC,3,3.0,18.8,56.5,30.6,
+180,Gui Santos,GSW,3,3.0,18.7,56.2,28.1,
+181,Bub Carrington,WAS,3,3.0,18.7,56.2,26.0,
+182,AJ Green,MIL,3,3.0,18.7,56.1,29.7,
+183,Cason Wallace,OKC,3,2.8,20.2,55.9,21.0,GTD - Undisclosed (back ~Oct 20)
+184,Justin Champagnie,WAS,3,3.0,18.6,55.8,25.2,
+185,Collin Murray-Boyles,TOR,3,3.0,18.5,55.5,27.1,GTD - Rest (back ~Oct 21)
+186,Jaylen Wells,MEM,3,3.0,18.4,55.2,21.2,
+187,Kris Dunn,LAC,3,3.0,18.3,54.8,19.0,GTD - Rest (back ~Oct 21)
+188,Malachi Smith,TOR,3,3.0,18.3,54.8,23.7,
+189,Kennedy Chandler,PHX,2,2.0,27.3,54.5,30.6,
+190,Miles Bridges,PHX,2,2.0,27.2,54.4,31.0,
+191,De'Andre Hunter,SAC,3,3.0,18.0,54.0,15.0,
+192,DeMar DeRozan,DEN,2,2.0,26.9,53.9,30.2,
+193,Dariq Whitehead,OKC,3,3.0,17.9,53.7,17.8,
+194,GG Jackson,MEM,3,2.8,19.4,53.6,27.1,GTD - Ankle (back ~Oct 21)
+195,Aaron Gordon,DEN,2,2.0,26.7,53.4,27.9,GTD - Rest (back ~Oct 22)
+196,Taylor Hendricks,MEM,3,3.0,17.7,53.2,24.7,
+197,Miles McBride,NYK,3,3.0,17.7,53.1,16.7,
+198,Dean Wade,PHI,4,3.8,14.1,53.1,15.6,GTD - Ankle (back ~Oct 20)
+199,Olivier-Maxence Prosper,MEM,3,3.0,17.7,53.0,29.5,
+200,Jaxson Hayes,UTA,3,3.0,17.5,52.5,28.5,
+201,Ja'Kobe Walter,TOR,3,3.0,17.4,52.2,24.6,GTD - Rest (back ~Oct 21)
+202,Herbert Jones,NOP,3,3.0,17.4,52.1,20.3,
+203,Tim Hardaway Jr.,MIA,3,3.0,17.3,52.0,18.6,
+204,Anthony Black,ORL,3,2.8,18.6,51.4,17.2,GTD - Ankle (back ~Oct 21)
+205,Dennis Schröder,CHA,3,3.0,17.1,51.2,20.0,
+206,Pelle Larsson,MIA,3,2.8,18.5,51.1,25.3,GTD - Illness (back ~Oct 21)
+207,Alondes Williams,WAS,3,3.0,17.0,51.1,13.3,
+208,Bones Hyland,MIN,3,3.0,17.0,51.0,26.7,GTD - Rest (back ~Oct 21)
+209,Will Riley,WAS,3,3.0,17.0,50.9,32.3,
+210,Obi Toppin,IND,3,3.0,16.9,50.7,28.6,
+211,Gary Payton II,GSW,3,3.0,16.8,50.5,27.2,
+212,Luke Kornet,SAS,3,3.0,16.7,50.2,18.1,
+213,Jarace Walker,IND,3,2.8,18.1,50.1,29.0,GTD - Undisclosed (back ~Oct 21)
+214,Neemias Queta,BOS,2,2.0,24.9,49.9,36.2,GTD - Rest (back ~Oct 20)
+215,Cameron Johnson,DEN,2,2.0,24.9,49.8,32.1,
+216,Ryan Kalkbrenner,CHA,3,3.0,16.5,49.6,18.4,
+217,Jalen Green,PHX,2,2.0,24.8,49.5,30.8,
+218,Peyton Watson,CLE,2,2.0,24.7,49.5,26.7,
+219,Bryce McGowens,NOP,3,3.0,16.5,49.4,19.0,
+220,Dillon Brooks,PHX,2,2.0,24.7,49.4,22.4,
+221,Steven Adams,HOU,3,3.0,16.4,49.3,19.3,GTD - Rest (back ~Oct 21)
+222,Ziaire Williams,LAL,3,3.0,16.4,49.2,23.1,
+223,Leonard Miller,CHI,3,3.0,16.3,49.0,30.1,
+224,Noah Clowney,BKN,3,3.0,16.3,49.0,15.9,
+225,Tristan da Silva,ORL,3,3.0,16.3,48.9,18.4,
+226,Jake LaRavia,LAL,3,3.0,16.3,48.8,22.7,
+227,Keon Ellis,BKN,3,3.0,16.1,48.4,19.9,
+228,Kobe Brown,IND,3,3.0,16.1,48.4,24.5,
+229,Paul Reed,DET,3,3.0,16.1,48.2,30.1,
+230,Jonathan Kuminga,MIN,3,3.0,16.0,48.0,20.2,GTD - Rest (back ~Oct 21)
+231,Landry Shamet,NYK,3,3.0,16.0,48.0,12.9,
+232,Cody Williams,MIN,3,3.0,15.9,47.8,29.0,
+233,Tre Johnson,WAS,3,3.0,15.9,47.8,13.1,
+234,Anthony Gill,WAS,3,3.0,15.9,47.7,27.3,
+235,Jordan Poole,NOP,3,3.0,15.9,47.6,19.9,
+236,Kyle Anderson,TOR,3,3.0,15.8,47.4,22.9,
+237,Scoot Henderson,POR,2,2.0,23.6,47.3,29.2,
+238,Oscar Tshiebwe,HOU,3,3.0,15.7,47.2,26.1,
+239,Yves Missi,NOP,3,3.0,15.7,47.1,23.3,
+240,Pete Nance,MIL,3,3.0,15.7,47.1,20.7,
+241,Rui Hachimura,LAC,3,3.0,15.7,47.1,23.0,
+242,Reece Beekman,WAS,3,3.0,15.6,46.8,16.7,
+243,Daeqwon Plowden,SAC,3,3.0,15.5,46.6,24.0,
+244,Ousmane Dieng,MIL,3,3.0,15.4,46.2,26.5,
+245,Harrison Barnes,SAS,3,3.0,15.4,46.1,15.0,
+246,Jaylon Tyson,CLE,2,2.0,23.0,46.0,21.2,
+247,Zaccharie Risacher,DAL,3,3.0,15.3,45.8,15.5,
+248,Elijah Harkless,DET,3,3.0,15.2,45.5,24.9,
+249,Collin Gillespie,PHX,2,2.0,22.8,45.5,19.4,
+250,Nique Clifford,SAC,3,3.0,15.1,45.4,27.5,
+251,Taurean Prince,DET,3,3.0,15.1,45.2,28.6,
+252,Chaney Johnson,BKN,3,3.0,15.0,45.1,20.1,
+253,Caris LeVert,MIL,3,3.0,15.0,44.9,18.3,
+254,Danny Wolf,BKN,3,3.0,15.0,44.9,18.4,
+255,Malik Monk,SAC,3,2.8,16.2,44.7,23.1,GTD - Ankle (back ~Oct 21)
+256,Tyler Burton,GSW,3,3.0,14.9,44.6,22.7,
+257,Jock Landale,ATL,3,3.0,14.8,44.4,20.0,
+258,Walter Clayton Jr.,MEM,3,3.0,14.8,44.4,22.9,
+259,Christian Braun,DEN,2,2.0,22.1,44.2,24.6,
+260,Kasparas Jakučionis,MIL,3,3.0,14.5,43.6,17.5,
+261,Blake Hinson,UTA,3,2.8,15.7,43.4,22.7,GTD - Hip (back ~Oct 21)
+262,Nolan Traore,BKN,3,3.0,14.3,42.9,24.4,
+263,Aaron Wiggins,ATL,3,3.0,14.2,42.7,12.5,
+264,Andre Drummond,NYK,3,3.0,14.2,42.6,19.1,
+265,Kris Murray,MEM,3,3.0,14.1,42.3,16.2,
+266,Bruce Brown,NYK,3,3.0,14.1,42.3,22.9,
+267,Jericho Sims,MIL,3,2.8,15.0,42.2,27.4,GTD - Undisclosed (back ~Oct 21)
+268,Terance Mann,BKN,3,3.0,14.0,42.1,13.2,
+269,Matisse Thybulle,LAL,3,3.0,14.0,42.0,22.3,
+270,Adem Bona,PHI,4,3.8,11.1,42.0,12.3,GTD - Foot (back ~Oct 20)
+271,Isaiah Joe,DET,3,3.0,14.0,42.0,19.6,
+272,Drake Powell,BKN,3,3.0,13.9,41.6,17.4,
+273,Zach Collins,CHI,3,2.8,14.9,41.5,20.0,GTD - Toe (back ~Oct 21)
+274,Jaylin Williams,OKC,3,2.8,14.9,41.3,19.0,GTD - Heel (back ~Oct 20)
+275,Karlo Matković,NOP,3,3.0,13.7,41.2,18.0,
+276,DeAndre Jordan,NOP,3,3.0,13.6,40.9,17.4,
+277,Ben Sheppard,IND,3,3.0,13.6,40.9,16.9,
+278,Quenton Jackson,IND,3,3.0,13.6,40.8,23.6,
+279,Quinten Post,MEM,3,3.0,13.6,40.8,17.8,
+280,Luguentz Dort,ATL,3,3.0,13.6,40.7,20.1,
+281,Svi Mykhailiuk,UTA,3,3.0,13.6,40.7,21.3,
+282,Justin Edwards,PHI,4,4.0,10.2,40.6,9.2,
+283,Jordan Goodwin,PHX,2,2.0,20.2,40.4,25.6,
+284,Isaiah Jackson,LAC,3,3.0,13.4,40.1,25.5,
+285,Oso Ighodaro,PHX,2,2.0,20.0,40.0,24.2,GTD - Rest (back ~Oct 21)
+286,Ronald Holland II,DET,3,3.0,13.3,39.9,17.4,
+287,Patrick Williams,CHI,3,3.0,13.3,39.9,18.0,
+288,Isaac Okoro,CHI,3,2.8,14.3,39.8,21.8,GTD - Undisclosed (back ~Oct 21)
+289,Klay Thompson,MIA,3,3.0,13.3,39.8,18.8,
+290,Ben Saraf,BKN,3,3.0,13.0,39.1,21.6,
+291,Sam Merrill,CLE,2,1.8,22.1,39.0,26.2,GTD - Elbow (back ~Oct 22)
+292,Dereck Lively II,DAL,3,2.8,14.0,38.7,18.4,GTD - Foot (back ~Oct 21)
+293,John Poulakidas,DAL,3,3.0,12.8,38.5,18.9,
+294,Mitchell Robinson,BOS,2,2.0,19.1,38.2,28.1,GTD - Rest (back ~Oct 20)
+295,Alex Caruso,OKC,3,3.0,12.7,38.1,12.6,
+296,Goga Bitadze,ORL,3,3.0,12.6,37.9,19.3,
+297,Jose Alvarado,NYK,3,3.0,12.6,37.9,18.0,
+298,Jahmai Mashack,MEM,3,3.0,12.5,37.4,20.3,
+299,Kevon Looney,LAL,3,3.0,12.2,36.7,16.4,
+300,Khris Middleton,WAS,3,3.0,12.2,36.6,10.0,GTD - Rest (back ~Oct 16)
+301,Isaiah Stewart,MEM,3,2.0,18.2,36.6,21.3,OUT - Ankle (back ~Oct 23)
+302,Sion James,CHA,3,3.0,12.1,36.3,15.0,
+303,Georges Niang,GSW,3,3.0,12.1,36.3,12.8,
+304,Robert Williams III,POR,2,2.0,18.1,36.2,21.8,GTD - Rest (back ~Oct 21)
+305,Charles Bassey,GSW,3,3.0,12.1,36.2,16.9,
+306,Jarred Vanderbilt,LAL,3,3.0,11.9,35.6,13.9,
+307,Marvin Bagley III,DEN,2,2.0,17.8,35.5,26.5,
+308,Javonte Green,DET,3,3.0,11.8,35.5,19.9,
+309,Grant Williams,CHA,3,2.8,12.7,35.4,17.3,GTD - Hamstring (back ~Oct 21)
+310,Simone Fontecchio,MIA,3,3.0,11.8,35.3,17.4,
+311,Corey Kispert,ATL,3,3.0,11.7,35.1,12.3,
+312,Jalen Wilson,ATL,3,3.0,11.7,35.1,17.7,
+313,Kenrich Williams,OKC,3,3.0,11.6,34.9,10.9,
+314,Moussa Cisse,DAL,3,3.0,11.4,34.3,21.1,
+315,Brandon Boston,CHI,3,3.0,11.3,33.9,11.5,
+316,Micah Peavy,MEM,3,2.8,11.6,33.3,15.4,GTD - Ankle (back ~Oct 21)
+317,Pat Spencer,PHX,2,2.0,16.5,32.9,20.3,
+318,Kam Jones,MIL,3,3.0,10.8,32.3,14.4,
+319,Sam Hauser,BOS,2,2.0,16.0,32.1,21.2,GTD - Rest (back ~Oct 20)
+320,Will Richard,GSW,3,3.0,10.6,31.8,11.3,
+321,Keshon Gilbert,ATL,3,3.0,10.5,31.4,14.0,
+322,Terrence Shannon Jr,MIN,3,3.0,10.4,31.1,16.5,
+323,Gary Trent Jr.,MIL,3,3.0,10.4,31.1,15.2,
+324,Jared McCain,OKC,3,3.0,10.2,30.7,9.6,
+325,Jordan Clarkson,NYK,3,3.0,10.2,30.5,12.7,
+326,Clint Capela,HOU,3,3.0,10.1,30.3,15.8,
+327,Buddy Hield,CHI,3,3.0,10.0,30.1,11.9,
+328,Jevon Carter,ORL,3,3.0,10.0,30.0,13.7,
+329,Dru Smith,MIA,3,2.8,10.5,29.1,14.7,GTD - Calf (back ~Oct 21)
+330,Jordan Hawkins,CHI,3,3.0,9.7,29.1,18.0,
+331,Hayden Gray,BOS,2,2.0,14.5,28.9,15.0,
+332,Nick Richards,MIA,3,3.0,9.6,28.8,18.2,
+333,Mouhamed Gueye,ATL,3,2.8,10.3,28.7,12.0,GTD - Foot (back ~Oct 21)
+334,Luke Kennard,PHX,2,1.8,15.9,28.2,25.0,GTD - Knee (back ~Oct 21)
+335,Jaden Hardy,LAL,3,3.0,9.4,28.2,18.4,
+336,Trendon Watford,NOP,3,3.0,9.4,28.2,15.8,
+337,KJ Martin,MIN,3,3.0,9.3,27.9,11.4,
+338,Dwight Powell,DAL,3,3.0,9.3,27.8,17.0,
+339,Nikola Topić,OKC,3,2.8,9.7,27.7,12.5,GTD - Back (back ~Oct 20)
+340,Joan Beringer,MIN,3,3.0,9.1,27.4,17.5,
+341,Bogdan Bogdanović,HOU,3,3.0,9.1,27.4,7.9,
+342,Micah Potter,POR,2,1.8,15.5,27.3,24.6,GTD - Illness (back ~Oct 21)
+343,Josh Okogie,UTA,3,3.0,8.9,26.8,9.5,
+344,Jalen Pickett,LAC,3,3.0,8.9,26.7,7.6,
+345,LJ Cryer,GSW,3,3.0,8.9,26.7,11.5,
+346,Carter Bryant,SAS,3,3.0,8.9,26.7,14.9,
+347,Craig Porter Jr.,CLE,2,2.0,13.1,26.3,15.7,
+348,Tidjane Salaün,CHA,3,3.0,8.7,26.2,12.4,
+349,Tacko Fall,PHI,4,3.8,6.6,25.7,5.1,GTD - Hip (back ~Oct 20)
+350,Jaylen Clark,MIN,3,3.0,8.5,25.6,12.3,
+351,Cam Whitmore,DEN,2,2.0,12.8,25.6,17.5,
+352,Dalen Terry,GSW,3,3.0,8.5,25.5,12.6,
+353,Tristen Newton,SAC,3,3.0,8.5,25.4,2.7,
+354,Trey Alexander,UTA,3,2.8,8.9,25.1,11.5,GTD - Knee (back ~Oct 21)
+355,PJ Hall,CHA,3,3.0,8.4,25.1,15.1,
+356,Devin Carter,BOS,2,1.8,13.8,24.8,27.7,GTD - Illness (back ~Oct 20)
+357,Mo Bamba,UTA,3,3.0,8.2,24.7,13.5,
+358,Keshad Johnson,MIA,3,3.0,8.1,24.4,15.6,
+359,James Wiseman,NYK,3,3.0,8.1,24.3,13.9,
+360,Kobe Sanders,LAC,3,2.8,8.7,24.1,19.4,GTD - Hip (back ~Oct 21)
+361,Luka Garza,BOS,2,2.0,12.1,24.1,23.5,
+362,Kylor Kelley,MIA,3,3.0,8.0,24.0,8.9,
+363,Ryan Nembhard,DEN,2,2.0,11.9,23.9,23.9,
+364,Adam Flagler,SAC,3,3.0,7.9,23.7,7.3,
+365,Caleb Martin,DAL,3,3.0,7.9,23.7,11.1,
+366,Baylor Scheierman,BOS,2,2.0,11.8,23.6,19.7,
+367,Ben Simmons,SAC,3,3.0,7.8,23.5,9.0,
+368,Orlando Robinson,CHI,3,3.0,7.7,23.2,15.4,
+369,Caleb Love,PHI,4,4.0,5.7,23.0,10.2,
+370,Ryan Dunn,PHX,2,2.0,11.4,22.8,20.4,
+371,Asa Newell,ATL,3,3.0,7.6,22.8,11.4,
+372,Vít Krejčí,POR,2,2.0,11.3,22.6,12.1,
+373,Malaki Branham,ORL,3,3.0,7.4,22.2,13.3,
+374,Larry Nance Jr.,IND,3,3.0,7.4,22.2,10.5,
+375,Malevy Leons,GSW,3,3.0,7.4,22.2,11.5,
+376,Jordan Walsh,BOS,2,2.0,11.0,22.1,16.8,
+377,Mike Conley,BOS,2,2.0,10.8,21.7,16.6,GTD - Rest (back ~Oct 20)
+378,Bronny James,LAL,3,3.0,7.1,21.2,11.0,
+379,Jamal Cain,ORL,3,3.0,7.1,21.2,17.3,
+380,Brooks Barnhizer,OKC,3,3.0,7.0,20.9,7.9,
+381,Jabari Walker,PHI,4,4.0,5.2,20.9,8.6,
+382,Thomas Bryant,CLE,2,2.0,10.3,20.6,15.8,
+383,AJ Johnson,NOP,3,3.0,6.8,20.3,8.6,
+384,Haywood Highsmith,PHX,2,2.0,10.0,20.1,15.0,
+385,Jamaree Bouyea,PHX,2,2.0,9.7,19.4,10.6,
+386,Grant Nelson,BKN,3,3.0,6.3,19.0,11.8,
+387,Josh Green,UTA,3,3.0,6.3,18.9,4.0,
+388,Enrique Freeman,MIN,3,2.8,6.6,18.8,8.8,GTD - Shoulder (back ~Oct 21)
+389,Jae'Sean Tate,HOU,3,3.0,6.3,18.8,7.5,
+390,Nikola Jović,MIA,3,3.0,6.2,18.5,6.0,
+391,Jett Howard,DAL,3,2.8,6.5,18.3,9.5,GTD - Illness (back ~Oct 21)
+392,JD Davison,ORL,3,3.0,6.0,18.1,8.3,
+393,Dorian Finney-Smith,ATL,3,3.0,6.0,18.1,10.8,
+394,Branden Carlson,POR,2,2.0,9.0,17.9,20.0,
+395,Khaman Maluach,PHX,2,2.0,8.9,17.8,17.7,
+396,Zyon Pullin,MIN,3,3.0,5.9,17.7,5.9,
+397,Spencer Jones,DEN,2,1.8,10.0,17.7,15.2,GTD - Hamstring (back ~Oct 22)
+398,Dillon Jones,PHI,4,4.0,4.4,17.4,9.2,
+399,Tyrese Proctor,CLE,2,2.0,8.6,17.2,15.5,
+400,Tyler Kolek,NYK,3,3.0,5.6,16.7,11.5,
+401,Rasheer Fleming,PHX,2,2.0,8.2,16.4,12.7,
+402,Nae'Qwan Tomlin,CLE,2,1.8,9.1,16.3,14.5,GTD - Back (back ~Oct 22)
+403,Mohamed Diawara,NYK,3,3.0,5.4,16.3,9.1,
+404,RayJ Dennis,ATL,3,3.0,5.4,16.2,4.2,
+405,Liam McNeeley,CHA,3,3.0,5.2,15.7,5.9,
+406,Moritz Wagner,BKN,3,3.0,5.2,15.7,6.7,
+407,Marcus Sasser,DAL,3,3.0,5.2,15.6,6.9,
+408,Kobe Bufkin,NOP,3,3.0,5.2,15.6,3.6,
+409,Julian Phillips,HOU,3,3.0,5.2,15.5,4.6,
+410,Rocco Zikarsky,MIN,3,2.8,5.3,15.1,10.4,GTD - Undisclosed (back ~Oct 21)
+411,Pacôme Dadiet,NYK,3,3.0,4.8,14.5,5.1,
+412,Isaiah Crawford,HOU,3,3.0,4.7,14.2,5.4,
+413,Gradey Dick,LAC,3,3.0,4.7,14.1,3.8,
+414,Tolu Smith,DET,3,3.0,4.7,14.0,6.1,
+415,Nathan Mensah,LAC,3,3.0,4.6,13.9,4.6,
+416,Chris Mañon,LAL,3,3.0,4.6,13.9,5.1,
+417,Jonathan Mogbo,SAC,3,3.0,4.6,13.9,7.5,
+418,Drew Timme,MIN,3,3.0,4.6,13.7,5.4,
+419,Dalton Knecht,LAL,3,3.0,4.5,13.5,7.1,
+420,David Jones Garcia,SAS,3,3.0,4.5,13.4,8.8,
+421,Adou Thiero,LAL,3,2.8,4.6,12.9,4.9,GTD - Undisclosed (back ~Oct 21)
+422,Jeremy Sochan,POR,2,2.0,6.4,12.8,11.1,
+423,Chris Livingston,WAS,3,3.0,4.2,12.6,4.2,
+424,Tristan Enaruna,CLE,2,2.0,6.2,12.5,8.9,
+425,Drew Peterson,CHI,3,3.0,4.1,12.4,3.5,
+426,Hugo González,BOS,2,2.0,6.2,12.4,8.3,
+427,Trayce Jackson-Davis,TOR,3,3.0,4.1,12.2,4.6,
+428,Myron Gardner,MIA,3,3.0,4.0,12.1,6.9,
+429,Jordan McLaughlin,SAS,3,3.0,3.9,11.8,8.6,
+430,Colin Castleton,ORL,3,3.0,3.9,11.7,11.8,
+431,Alijah Martin,TOR,3,3.0,3.8,11.4,2.6,
+432,Noah Penda,ORL,3,2.8,4.1,11.4,3.8,GTD - Hamstring (back ~Oct 21)
+433,Riley Minix,CLE,2,2.0,5.5,11.1,6.7,
+434,Jase Richardson,ORL,3,2.8,4.0,11.1,8.6,GTD - Back (back ~Oct 21)
+435,Zeke Nnaji,DEN,2,2.0,5.2,10.4,6.9,
+436,Jonathan Isaac,ORL,3,2.8,3.7,10.4,7.8,GTD - Knee (back ~Oct 21)
+437,Kevin McCullar Jr.,NYK,3,3.0,3.4,10.2,5.0,
+438,Tyus Jones,DEN,2,2.0,5.1,10.1,5.6,
+439,Duop Reath,PHX,2,2.0,4.9,9.8,6.8,
+440,Sidy Cissoko,POR,2,2.0,4.8,9.6,4.8,
+441,CJ Huntley,PHX,2,2.0,4.8,9.6,6.5,
+442,Norchad Omier,MIN,3,3.0,3.2,9.5,6.0,
+443,Isaac Jones,DET,3,3.0,3.2,9.5,3.2,
+444,Kevin Knox II,ORL,3,3.0,3.1,9.4,4.0,
+445,Chaz Lanier,DET,3,3.0,3.1,9.4,2.1,
+446,Tre Mann,WAS,3,3.0,3.1,9.4,3.5,
+447,Blake Wesley,LAC,3,3.0,3.1,9.3,4.8,
+448,Emanuel Miller,DEN,2,2.0,4.6,9.1,6.0,
+449,Ron Harper Jr.,BOS,2,2.0,4.5,9.1,10.5,
+450,John Tonje,POR,2,2.0,4.5,8.9,5.0,
+451,Jamison Battle,TOR,3,3.0,2.9,8.6,7.3,
+452,Antonio Reeves,MIN,3,3.0,2.8,8.5,5.0,
+453,Phillip Wheeler,PHX,2,2.0,4.2,8.3,3.0,
+454,Alex Morales,ORL,3,3.0,2.8,8.3,2.5,
+455,Koby Brea,PHX,2,2.0,4.1,8.2,6.8,
+456,Johni Broome,MIL,3,3.0,2.7,8.1,2.1,
+457,Seth Lundy,DAL,3,3.0,2.5,7.6,1.3,
+458,Amari Williams,BOS,2,2.0,3.8,7.6,2.9,
+459,Jayson Kent,POR,2,2.0,3.7,7.4,5.0,
+460,Chris Youngblood,POR,2,1.8,4.0,7.4,7.8,GTD - Calf (back ~Oct 21)
+461,Harrison Ingram,UTA,3,3.0,2.4,7.1,4.8,
+462,Jahmyl Telfort,LAC,3,3.0,2.3,7.0,0.1,
+463,Sean Pedulla,HOU,3,3.0,2.2,6.6,3.1,
+464,Vladislav Goldin,MIA,3,3.0,2.1,6.2,3.3,
+465,James Johnson,IND,3,3.0,2.0,5.9,1.2,
+466,DaRon Holmes II,DEN,2,2.0,2.9,5.8,5.7,
+467,Noa Essengue,CHI,3,3.0,1.8,5.5,0.5,
+468,Jalen Bridges,CHI,3,3.0,1.8,5.5,0.4,
+469,Miye Oni,LAC,3,3.0,1.8,5.4,0.6,
+470,Yang Hansen,POR,2,2.0,2.2,4.4,2.9,
+471,Trevor Keels,WAS,3,3.0,1.2,3.6,1.4,
+472,Yanic Konan Niederhäuser,LAC,3,0.0,6.9,0.0,19.5,OUT - Foot (back ~Nov 08)
+473,Mark Williams,PHX,2,0.0,21.1,0.0,20.7,OUT - Shoulder (back ~Feb 03)
+474,Jordan Miller,LAC,3,0.0,15.0,0.0,23.3,OUT - Shoulder (back ~Mar 01)
+475,Jimmy Butler III,GSW,3,0.0,34.3,0.0,40.2,OUT - Knee (back ~Jan 02)
+476,Donte DiVincenzo,MIN,3,0.0,21.7,0.0,21.5,OUT - Achilles (back ~Apr 01)
+477,Jusuf Nurkić,UTA,3,0.0,31.1,0.0,39.5,OUT - Foot (back ~Nov 04)
+478,Shaedon Sharpe,POR,2,0.0,26.8,0.0,25.8,OUT - Knee (back ~Mar 02)
+479,Ariel Hukporti,PHI,4,0.0,7.0,0.0,8.7,OUT - Achilles (back ~Oct 01)
+480,Brandon Ingram,LAC,3,0.0,31.0,0.0,33.7,OUT - Achilles (back ~Nov 08)
+481,Julian Strawther,DEN,2,0.0,9.6,0.0,17.2,OUT - Knee (back ~Nov 29)
+482,Tristan Vukcevic,WAS,3,0.0,14.5,0.0,22.6,OUT - Hip (back ~Nov 02)
+483,Max Strus,LAC,3,0.0,17.6,0.0,19.9,OUT - Foot (back ~Nov 08)
+484,Maxime Raynaud,SAC,3,0.0,25.3,0.0,30.9,OUT - Knee (back ~Nov 02)
+485,Johnny Furphy,IND,3,0.0,12.5,0.0,15.1,OUT - Knee (back ~Jan 01)
+486,Kristaps Porziņģis,GSW,3,0.0,25.8,0.0,25.6,OUT - Undisclosed (back ~Nov 09)
+487,Dylan Cardwell,SAC,3,0.0,19.4,0.0,24.7,OUT - Calf (back ~Nov 02)
+488,Moses Moody,GSW,3,0.0,23.2,0.0,31.9,OUT - Knee (back ~Dec 01)
+489,Bradley Beal,LAC,3,0.0,13.1,0.0,19.4,OUT - Knee (back ~Nov 08)
+490,Jamir Watkins,WAS,3,0.0,12.7,0.0,22.3,OUT - Knee (back ~Apr 01)
