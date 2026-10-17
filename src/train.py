@@ -75,10 +75,10 @@ def main():
     for name, r in results.items():
         print(f"  {name:<30} {r['mae']:10.2f} {r['mae_key_teammate_out']:18.2f}")
 
-    # Retrain the best model on everything (incl. test season) for live use
+    # Retrain the best model on every game we have for live use, including
+    # the current season so far, so monthly retrains learn this season's trends
     final = make_gbm()
-    full = df[df["SEASON"].isin(TRAIN_SEASONS + [TEST_SEASON])]
-    final.fit(full[FEATURES], full[TARGET])
+    final.fit(df[FEATURES], df[TARGET])
 
     MODELS_DIR.mkdir(exist_ok=True)
     REPORTS_DIR.mkdir(exist_ok=True)
