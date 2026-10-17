@@ -6,7 +6,8 @@ up off waivers.
 
 Scoring follows ESPN's default points league (editable in `src/config.py`).
 
-**Live dashboard: https://goofyanader.github.io/fantasy-basketball-ml/** (this week's rankings, injury status, and model accuracy)
+**Live dashboard: https://goofyanader.github.io/fantasy-basketball-ml/**: this week's rankings plus a
+[draft rankings tab](https://goofyanader.github.io/fantasy-basketball-ml/#draft) for season-long drafts.
 
 ## How it works
 
@@ -92,6 +93,38 @@ teams and roles faster than recent-form features can catch up.
   would have looked unusually healthy. Only rotation players (15+ minutes)
   count now, in both places.
 
+## Draft rankings (season-long model)
+
+A second model (`src/draft.py`) projects each player's full season for
+drafting: **fantasy points per game × games played**, each predicted by its
+own gradient-boosted model. Each row is one player-season; features come
+only from earlier seasons (up to three prior years of scoring, minutes,
+efficiency, usage, late-season form, games played, and age). Long-term
+injuries remove the team games before a player's expected return date.
+
+It trains on nine seasons (2017-18 onward). With one row per player per
+season, the dataset is small (~3,500 rows), so the model type (ridge vs.
+gradient boosting) is chosen on a validation season (2024-25) and results are
+reported on a separate test season (2025-26):
+
+| Drafting for 2025-26 | Avg. error, season total | Rank correlation | Top-100 hit rate |
+|---|---|---|---|
+| Last season's total | 525 | 0.681 | 60% |
+| 3-year weighted average | 527 | 0.673 | 55% |
+| **Our model** | **488** | **0.709** | **63%** |
+
+Lessons from building it:
+
+- **Games played is measured as a share of team games.** 2019-20 and 2020-21
+  were shortened by COVID, so raw games played isn't comparable across seasons.
+- **Players who missed a whole season** (e.g. Achilles injuries) had blank
+  "last season" stats, which the tree model lumped in with fringe players.
+  Haliburton was projected at 35 FP/game against his 47.5 before the injury.
+  These features now come from the most recent season played, and
+  `gp_share_1 = 0` still tells the model he sat out. He's now at 44.
+- **Limitations:** rookies aren't ranked (no NBA stats yet), and the model
+  can't see role changes from offseason trades.
+
 ## Usage
 
 ```bash
@@ -107,6 +140,7 @@ python -m src.data --refresh
 python -m src.predict_week --players "Jalen Brunson" "Scottie Barnes"
 python -m src.predict_week --no-injuries   # assume everyone is healthy
 python -m src.injuries                     # view the current injury report
+python -m src.draft                        # backtest + train draft model, print top 30
 ```
 
 ### Updating the dashboard

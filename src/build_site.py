@@ -15,6 +15,7 @@ import pandas as pd
 
 from src.config import CURRENT_SEASON, REPORTS_DIR, ROOT, SCORING
 from src.data import load_all
+from src.draft import DRAFT_SEASONS, project_season
 from src.predict_week import next_monday, project_games, summarize_week
 
 TEMPLATE = ROOT / "site" / "template.html"
@@ -60,6 +61,7 @@ def build_payload(start: date) -> dict:
     ]
 
     return {
+        "draft": build_draft_payload(),
         "meta": {
             "week_start": str(start),
             "week_end": str(start + timedelta(days=6)),
@@ -71,6 +73,27 @@ def build_payload(start: date) -> dict:
         "players": players,
         "teams": teams,
         "metrics": json.loads((REPORTS_DIR / "metrics.json").read_text()),
+    }
+
+
+def build_draft_payload() -> dict:
+    proj = project_season()
+    clean = lambda v: None if pd.isna(v) else v  # noqa: E731
+    players = [
+        {"rank": i + 1, "name": r.PLAYER_NAME, "team": r.TEAM, "pos": r.POSITION or "–",
+         "age": clean(r.age), "ppg": round(float(r.proj_ppg), 1), "gp": round(float(r.proj_gp), 1),
+         "total": round(float(r.proj_total), 1),
+         "status": clean(r.status), "injury_type": clean(r.injury_type) or None,
+         "return_date": None if pd.isna(r.return_date) else str(r.return_date.date()),
+         "games_missed": int(r.games_missed_injury), "new_team": bool(r.new_team),
+         "history": r.history if isinstance(r.history, list) else []}
+        for i, r in enumerate(proj.itertuples())
+    ]
+    return {
+        "season": CURRENT_SEASON,
+        "recent_seasons": DRAFT_SEASONS[-6:-1],  # last five completed seasons
+        "players": players,
+        "metrics": json.loads((REPORTS_DIR / "draft_metrics.json").read_text()),
     }
 
 

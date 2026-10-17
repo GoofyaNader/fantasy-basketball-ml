@@ -1,0 +1,31 @@
+{
+  "model_type": "gbm",
+  "test_season": "2025-26",
+  "test_players": 476,
+  "train_seasons": [
+    "2018-19",
+    "2019-20",
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25"
+  ],
+  "models": {
+    "Last season's total": {
+      "mae_total": 525.1512605042017,
+      "rank_corr": 0.6807396890565697,
+      "top100_hit_rate": 0.6
+    },
+    "3-year weighted average": {
+      "mae_total": 527.0264896163199,
+      "rank_corr": 0.6726983020599808,
+      "top100_hit_rate": 0.55
+    },
+    "Our model": {
+      "mae_total": 487.68130053885835,
+      "rank_corr": 0.7087422688129303,
+      "top100_hit_rate": 0.63
+    }
+  }
+}

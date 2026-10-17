@@ -195,6 +195,23 @@ details.table-view td, details.table-view th { padding: 4px 8px; }
 .how strong { display: block; margin-bottom: 2px; }
 .how p { margin: 0; color: var(--ink-2); font-size: 14px; }
 
+/* Tabs */
+.tabs { display: flex; gap: 4px; margin-top: 20px; border-bottom: 1px solid var(--axis); }
+.tab {
+  background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px;
+  padding: 8px 14px; font-size: 15px; font-weight: 550; color: var(--ink-2); cursor: pointer;
+}
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+header { margin-bottom: 18px; }
+#panel-week > .week-line, #panel-draft > .week-line { margin: 0 0 18px; }
+
+/* Draft board */
+td.round { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.spark { display: block; }
+.badge-new { font-size: 11px; color: var(--ink-2); border: 1px solid var(--border); border-radius: 999px; padding: 0 6px; margin-left: 6px; font-weight: 400; }
+.pos-inline { color: var(--muted); font-weight: 400; font-size: 12px; margin-left: 6px; }
+
 footer { color: var(--muted); font-size: 13px; margin-top: 28px; }
 footer p { margin: 4px 0; }
 
@@ -203,7 +220,9 @@ footer p { margin: 4px 0; }
   .card { padding: 16px; }
   .table-scroll { margin: 0 -16px; padding: 0 16px; }
   .bar-track { width: 44px; }
-  .col-team, .col-ppg { display: none; }
+  .col-team, .col-ppg, .col-age, .col-gp, .col-trend { display: none; }
+  .tab { padding: 8px 10px; }
+  .draft-table .bar-track { display: none; }
   .team-inline { display: block; color: var(--muted); font-weight: 400; font-size: 12px; }
   td.player-cell { white-space: normal; }
   .name-btn { align-items: flex-start; }
@@ -222,9 +241,15 @@ footer p { margin: 4px 0; }
 <div class="wrap">
   <header>
     <p class="eyebrow">NBA fantasy basketball · ESPN points scoring</p>
-    <h1>Weekly projections</h1>
-    <p class="week-line" id="week-line"></p>
+    <h1>Fantasy basketball projections</h1>
+    <div class="tabs" role="tablist" aria-label="Views">
+      <button class="tab" role="tab" id="tab-week" aria-controls="panel-week" aria-selected="true">This week</button>
+      <button class="tab" role="tab" id="tab-draft" aria-controls="panel-draft" aria-selected="false" tabindex="-1">Draft rankings</button>
+    </div>
   </header>
+
+  <div id="panel-week" role="tabpanel" aria-labelledby="tab-week">
+  <p class="week-line" id="week-line"></p>
 
   <section class="tiles" id="tiles" aria-label="Summary"></section>
 
@@ -298,6 +323,80 @@ footer p { margin: 4px 0; }
       <li><strong>Injury report</strong><p>ESPN's live report sets each player's chance of playing each game, and feeds the teammate-absence features.</p></li>
     </ul>
   </section>
+  </div>
+
+  <div id="panel-draft" role="tabpanel" aria-labelledby="tab-draft" hidden>
+  <p class="week-line" id="draft-line"></p>
+
+  <section class="tiles" id="draft-tiles" aria-label="Draft summary"></section>
+
+  <section class="card" id="board" aria-labelledby="board-h">
+    <h2 id="board-h">Draft board</h2>
+    <p class="card-intro">Projected fantasy points for the whole season: points per game × games played. Pick your league size to see which round each player is worth. Click a player for his last five seasons.</p>
+    <div class="filters">
+      <input type="search" id="dq" placeholder="Search players" aria-label="Search players" autocomplete="off">
+      <select id="dpos" aria-label="Filter by position">
+        <option value="">All positions</option>
+        <option value="G">Guards</option>
+        <option value="F">Forwards</option>
+        <option value="C">Centers</option>
+      </select>
+      <select id="dteam" aria-label="Filter by team"><option value="">All teams</option></select>
+      <label class="check">League size
+        <select id="dsize" aria-label="Teams in your league">
+          <option value="8">8 teams</option>
+          <option value="10" selected>10 teams</option>
+          <option value="12">12 teams</option>
+          <option value="14">14 teams</option>
+        </select>
+      </label>
+      <span class="count" id="dcount" aria-live="polite"></span>
+    </div>
+    <div class="table-scroll">
+      <table class="draft-table">
+        <thead>
+          <tr>
+            <th class="num" scope="col">#</th>
+            <th scope="col">Player</th>
+            <th class="num col-age" scope="col"><button class="dsort sort" data-key="age">Age<span class="arrow"></span></button></th>
+            <th class="num col-ppg" scope="col"><button class="dsort sort" data-key="ppg">Pts / game<span class="arrow"></span></button></th>
+            <th class="num col-gp" scope="col"><button class="dsort sort" data-key="gp">Games<span class="arrow"></span></button></th>
+            <th class="num" scope="col"><button class="dsort sort" data-key="total">Season total<span class="arrow"></span></button></th>
+            <th class="num" scope="col">Round</th>
+            <th class="col-trend" scope="col">Pts / game, last 5 seasons</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody id="drows"></tbody>
+      </table>
+    </div>
+    <p class="chart-note" style="margin-top:12px">Age is at the end of the season, as NBA.com reports it. Rookies aren't ranked: the model needs at least one NBA season of stats.</p>
+    <button class="more" id="dmore" hidden></button>
+  </section>
+
+  <section class="card" aria-labelledby="dacc-h">
+    <h2 id="dacc-h">Would it have drafted well?</h2>
+    <p class="card-intro" id="dacc-intro"></p>
+    <div class="seg" role="group" aria-label="Measure" id="dseg">
+      <button data-metric="top100_hit_rate" aria-pressed="true">Top-100 hits</button>
+      <button data-metric="rank_corr" aria-pressed="false">Ranking accuracy</button>
+      <button data-metric="mae_total" aria-pressed="false">Average error</button>
+    </div>
+    <div class="hbars" id="dbars" style="max-width:560px"></div>
+    <p class="chart-note" id="dmetric-note" style="margin-top:12px"></p>
+  </section>
+
+  <section class="card" aria-labelledby="dhow-h">
+    <h2 id="dhow-h">How the draft model works</h2>
+    <p class="card-intro">Two gradient-boosted models trained on nine NBA seasons, one row per player per season, using only what was known before each season started.</p>
+    <ul class="how">
+      <li><strong>Points per game</strong><p>From the last three seasons' scoring, minutes, efficiency, usage, and form over the final 20 games of last season.</p></li>
+      <li><strong>Games played</strong><p>Availability matters as much as talent. The model learns who tends to miss time from each player's recent seasons and age.</p></li>
+      <li><strong>Age</strong><p>Young players tend to improve and veterans tend to decline. The model learns the shape of that curve from the data.</p></li>
+      <li><strong>Current injuries</strong><p>Players out long-term lose the games their team plays before their expected return date.</p></li>
+    </ul>
+  </section>
+  </div>
 
   <footer>
     <p id="footer-line"></p>
@@ -606,9 +705,214 @@ footer p { margin: 4px 0; }
     });
   }
 
+  // ================= Draft rankings =================
+  const draft = DATA.draft;
+  const dp = draft.players;
+  const dm = draft.metrics;
+  const dOurs = dm.models["Our model"], dLast = dm.models["Last season's total"];
+  const thousands = (n) => Math.round(n).toLocaleString();
+
+  $("#draft-line").append(
+    el("strong", { text: `${draft.season} season` }),
+    ` · ${dp.length} players · injuries as of ${fmtMD.format(asDate(meta.generated.slice(0, 10)))}`);
+
+  const dTop = dp[0];
+  const longTerm = dp.filter((p) => p.games_missed > 0);
+  [
+    ["Top pick", dTop.name, null, `${thousands(dTop.total)} pts · ${one(dTop.ppg)} per game · ${Math.round(dTop.gp)} games`],
+    ["Top-100 hit rate", `${Math.round(dOurs.top100_hit_rate * 100)}%`, null,
+      `of its top 100 finished top 100 in ${dm.test_season}, vs ${Math.round(dLast.top100_hit_rate * 100)}% using last season's totals`],
+    ["Ranking accuracy", dOurs.rank_corr.toFixed(2), null, `rank correlation in ${dm.test_season}, vs ${dLast.rank_corr.toFixed(2)} using last season's totals`],
+    ["Out long-term", String(longTerm.length), "players", "projected games reduced until their return date"],
+  ].forEach(([label, value, unit, note]) => {
+    const v = el("p", { class: "tile-value" }, value);
+    if (unit) v.append(el("small", { text: unit }));
+    $("#draft-tiles").append(el("div", { class: "tile" },
+      el("p", { class: "tile-label", text: label }), v, el("p", { class: "tile-note", text: note })));
+  });
+
+  const dState = { q: "", pos: "", team: "", size: 10, sort: "total", dir: -1, limit: 60, open: new Set() };
+  const maxTotal = Math.max(...dp.map((p) => p.total), 1);
+  const dTeam = $("#dteam");
+  [...new Set(dp.map((p) => p.team))].sort().forEach((t) => dTeam.append(el("option", { value: t, text: t })));
+  const RECENT = draft.recent_seasons;  // the last five completed seasons
+
+  function sparkline(p) {
+    const W = 92, H = 26, pad = 3;
+    const byS = Object.fromEntries((p.history || []).map((h) => [h.season, h]));
+    const pts = RECENT.map((s, i) => ({ i, v: byS[s] ? byS[s].fp_pg : null }));
+    const vals = pts.filter((q) => q.v != null).map((q) => q.v);
+    const svg = document.createElementNS(SVG, "svg");
+    svg.setAttribute("class", "spark");
+    svg.setAttribute("width", W); svg.setAttribute("height", H);
+    svg.setAttribute("role", "img");
+    svg.setAttribute("aria-label", RECENT.map((s, i) => `${s}: ${pts[i].v == null ? "did not play" : one(pts[i].v)}`).join(", "));
+    if (!vals.length) return svg;
+    const lo = Math.min(...vals) - 2, hi = Math.max(...vals) + 2;
+    const x = (i) => pad + (i / (RECENT.length - 1)) * (W - 2 * pad);
+    const y = (v) => pad + ((hi - v) / (hi - lo)) * (H - 2 * pad);
+    // Break the line at seasons he didn't play
+    let d = "", pen = false;
+    for (const q of pts) {
+      if (q.v == null) { pen = false; continue; }
+      d += `${pen ? "L" : "M"}${x(q.i).toFixed(1)},${y(q.v).toFixed(1)}`;
+      pen = true;
+    }
+    svgEl("path", { d, fill: "none", stroke: "var(--muted)", "stroke-width": 1.5, "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
+    const last = [...pts].reverse().find((q) => q.v != null);
+    svgEl("circle", { cx: x(last.i), cy: y(last.v), r: 3, fill: "var(--accent)" }, svg);
+    return svg;
+  }
+
+  function draftStatus(p) {
+    const td = el("td");
+    if (!(p.status === "OUT" || p.status === "OFS")) return td;
+    const wrap = el("span", { class: "status" });
+    wrap.innerHTML = ICONS.out; // static, trusted markup
+    wrap.append(el("span", { text: p.status === "OFS" ? "Out for season" : "Out" }));
+    const bits = [p.injury_type, p.games_missed ? `misses ~${p.games_missed} games` : null].filter(Boolean);
+    if (bits.length) wrap.append(el("span", { class: "sub", text: "· " + bits.join(", ") }));
+    td.append(wrap);
+    return td;
+  }
+
+  function draftDetail(p) {
+    const chips = el("div", { class: "detail-games" });
+    for (const h of (p.history || []).filter((h) => RECENT.includes(h.season))) {
+      chips.append(el("div", { class: "game-chip" },
+        el("div", { class: "when", text: h.season }),
+        el("div", { class: "pts", text: `${one(h.fp_pg)} pts / game` }),
+        el("div", { class: "prob", text: `${h.gp} games` })));
+    }
+    const notes = [];
+    if (p.new_team) notes.push(`New team this season (${p.team}). His role may change, which the model can't see.`);
+    if (p.games_missed) notes.push(`Expected back around ${fmtMD.format(asDate(p.return_date))}, so ~${p.games_missed} of his team's games are removed.`);
+    notes.push(`Projection: ${one(p.ppg)} pts per game × ${Math.round(p.gp)} games = ${thousands(p.total)} pts.`);
+    return el("tr", { class: "detail", id: `dd-${p.rank}` },
+      el("td", { colspan: "9" }, chips, el("p", { class: "detail-note", text: notes.join(" ") })));
+  }
+
+  function renderDraft() {
+    const q = dState.q.trim().toLowerCase();
+    let rows = dp.filter((p) =>
+      (!q || p.name.toLowerCase().includes(q)) &&
+      (!dState.pos || p.pos.includes(dState.pos)) &&
+      (!dState.team || p.team === dState.team));
+    const k = dState.sort;
+    rows = rows.slice().sort((a, b) => ((a[k] ?? 0) - (b[k] ?? 0)) * dState.dir || a.rank - b.rank);
+    const body = $("#drows");
+    body.replaceChildren();
+    if (!rows.length) body.append(el("tr", {}, el("td", { colspan: "9", class: "empty", text: "No players match these filters." })));
+    for (const p of rows.slice(0, dState.limit)) {
+      const open = dState.open.has(p.rank);
+      const name = el("span", {}, p.name);
+      if (p.new_team) name.append(el("span", { class: "badge-new", text: "new team" }));
+      const btn = el("button", { class: "name-btn", "aria-expanded": String(open), "aria-controls": `dd-${p.rank}` },
+        el("span", { class: "chev", "aria-hidden": "true", text: "▶" }),
+        el("span", {}, name, el("span", { class: "team-inline", text: `${p.pos} · ${p.team}` })));
+      btn.addEventListener("click", () => {
+        open ? dState.open.delete(p.rank) : dState.open.add(p.rank);
+        renderDraft();
+      });
+      const fill = el("div", { class: "bar-fill" });
+      fill.style.width = `${(p.total / maxTotal) * 100}%`;
+      body.append(el("tr", { class: "player" },
+        el("td", { class: "rank num", text: String(p.rank) }),
+        el("td", { class: "player-cell" }, btn, el("span", { class: "pos-inline col-trend", text: `${p.pos} · ${p.team}` })),
+        el("td", { class: "num col-age", text: p.age == null ? "–" : String(Math.round(p.age)) }),
+        el("td", { class: "num col-ppg", text: one(p.ppg) }),
+        el("td", { class: "num col-gp", text: String(Math.round(p.gp)) }),
+        el("td", { class: "num" }, el("div", { class: "week-cell" },
+          el("span", { class: "val", text: thousands(p.total) }),
+          el("div", { class: "bar-track", "aria-hidden": "true" }, fill))),
+        el("td", { class: "num round", text: String(Math.ceil(p.rank / dState.size)) }),
+        el("td", { class: "col-trend" }, sparkline(p)),
+        draftStatus(p)));
+      if (open) body.append(draftDetail(p));
+    }
+    $("#dcount").textContent = `Showing ${Math.min(rows.length, dState.limit)} of ${rows.length} players`;
+    const more = $("#dmore");
+    more.hidden = rows.length <= dState.limit;
+    more.textContent = `Show ${Math.min(60, rows.length - dState.limit)} more`;
+    document.querySelectorAll(".dsort").forEach((b) => {
+      const active = b.dataset.key === dState.sort;
+      b.setAttribute("aria-pressed", String(active));
+      b.querySelector(".arrow").textContent = active ? (dState.dir < 0 ? "↓" : "↑") : "";
+      b.closest("th").setAttribute("aria-sort", active ? (dState.dir < 0 ? "descending" : "ascending") : "none");
+    });
+  }
+
+  const dReset = () => { dState.limit = 60; renderDraft(); };
+  $("#dq").addEventListener("input", (e) => { dState.q = e.target.value; dReset(); });
+  $("#dpos").addEventListener("change", (e) => { dState.pos = e.target.value; dReset(); });
+  dTeam.addEventListener("change", (e) => { dState.team = e.target.value; dReset(); });
+  $("#dsize").addEventListener("change", (e) => { dState.size = Number(e.target.value); renderDraft(); });
+  $("#dmore").addEventListener("click", () => { dState.limit += 60; renderDraft(); });
+  document.querySelectorAll(".dsort").forEach((b) => b.addEventListener("click", () => {
+    const k = b.dataset.key;
+    if (dState.sort === k) dState.dir = -dState.dir;
+    else { dState.sort = k; dState.dir = k === "age" ? 1 : -1; }
+    renderDraft();
+  }));
+
+  // Backtest bars
+  $("#dacc-intro").textContent =
+    `We trained on seasons before ${dm.test_season}, "drafted" the ${dm.test_players} returning players for ${dm.test_season}, then compared against how the season actually went. The common alternative is to draft by last season's totals.`;
+  const METRICS = {
+    top100_hit_rate: { fmt: (v) => `${Math.round(v * 100)}%`, higher: true,
+      note: "Of the 100 players each method ranked highest, how many actually finished in the top 100. Higher is better." },
+    rank_corr: { fmt: (v) => v.toFixed(3), higher: true,
+      note: "How well the full ranking matched the real finishing order (rank correlation; 1.0 = perfect). Higher is better." },
+    mae_total: { fmt: (v) => `${Math.round(v)} pts`, higher: false,
+      note: "Average miss on each player's season total, in fantasy points. Lower is better." },
+  };
+  let dMetric = "top100_hit_rate";
+  function renderDraftBars() {
+    const m = METRICS[dMetric];
+    const rows = Object.entries(dm.models).map(([name, v]) => ({ name, value: v[dMetric], ours: name === "Our model" }))
+      .sort((a, b) => (m.higher ? b.value - a.value : a.value - b.value));
+    const max = Math.max(...rows.map((r) => r.value)) * 1.08;
+    const box = $("#dbars");
+    box.replaceChildren();
+    for (const r of rows) {
+      const bar = el("div", { class: "hbar" + (r.ours ? " ours" : "") });
+      bar.style.width = `calc(${(r.value / max) * 100}% - 56px)`;
+      box.append(el("div", {},
+        el("div", { class: "hbar-label" + (r.ours ? " ours" : ""), text: r.name }),
+        el("div", { class: "hbar-row" }, bar, el("span", { class: "hbar-val", text: m.fmt(r.value) }))));
+    }
+    $("#dmetric-note").textContent = m.note;
+    document.querySelectorAll("#dseg button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.metric === dMetric)));
+  }
+  document.querySelectorAll("#dseg button").forEach((b) => b.addEventListener("click", () => { dMetric = b.dataset.metric; renderDraftBars(); }));
+
+  // ================= Tabs =================
+  const TABS = { week: $("#tab-week"), draft: $("#tab-draft") };
+  function selectTab(name, focus) {
+    for (const [key, tab] of Object.entries(TABS)) {
+      const on = key === name;
+      tab.setAttribute("aria-selected", String(on));
+      tab.tabIndex = on ? 0 : -1;
+      $(`#panel-${key}`).hidden = !on;
+    }
+    if (focus) TABS[name].focus();
+    if (name === "week") renderLine();  // needs a visible container to measure
+    history.replaceState(null, "", name === "draft" ? "#draft" : location.pathname + location.search);
+  }
+  TABS.week.addEventListener("click", () => selectTab("week"));
+  TABS.draft.addEventListener("click", () => selectTab("draft"));
+  document.querySelector(".tabs").addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+      e.preventDefault();
+      selectTab(TABS.week.getAttribute("aria-selected") === "true" ? "draft" : "week", true);
+    }
+  });
+
   renderTable();
   renderBars();
-  renderLine();
+  renderDraft();
+  renderDraftBars();
+  selectTab(location.hash === "#draft" ? "draft" : "week");
   let resizeTimer;
   window.addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(renderLine, 120); });
 })();
