@@ -83,8 +83,18 @@ def main():
     MODELS_DIR.mkdir(exist_ok=True)
     REPORTS_DIR.mkdir(exist_ok=True)
     joblib.dump(final, MODELS_DIR / "fp_model.joblib")
-    (REPORTS_DIR / "metrics.json").write_text(json.dumps(results, indent=2))
-    _plot(test.assign(pred=gbm_pred))
+    corr = _plot(test.assign(pred=gbm_pred))
+    metrics = {
+        "test_season": TEST_SEASON,
+        "test_games": len(test),
+        "key_teammate_out_games": int(big_absence.sum()),
+        "models": results,
+        "weekly_rank_corr": [
+            {"week_start": str(week.start_time.date()), "corr": round(float(c), 4)}
+            for week, c in corr.items() if pd.notna(c)
+        ],
+    }
+    (REPORTS_DIR / "metrics.json").write_text(json.dumps(metrics, indent=2))
     print(f"\nSaved model to {MODELS_DIR / 'fp_model.joblib'} and charts to {REPORTS_DIR}/")
 
 
@@ -110,6 +120,7 @@ def _plot(test: pd.DataFrame):
     fig.tight_layout()
     fig.savefig(REPORTS_DIR / "evaluation.png", dpi=120)
     print(f"Weekly ranking correlation (avg): {np.nanmean(corr.values):.3f}")
+    return corr
 
 
 if __name__ == "__main__":

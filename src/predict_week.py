@@ -49,6 +49,12 @@ def next_monday(today: date) -> date:
 
 
 def project_week(start: date, use_injuries: bool = True) -> pd.DataFrame:
+    """One row per player: projected fantasy points for the week, best first."""
+    return summarize_week(project_games(start, use_injuries))
+
+
+def project_games(start: date, use_injuries: bool = True) -> pd.DataFrame:
+    """One row per player per game this week, with proj_fp, play_prob and exp_fp."""
     end = start + timedelta(days=7)
     history = load_all()
     schedule = get_schedule()
@@ -84,7 +90,10 @@ def project_week(start: date, use_injuries: bool = True) -> pd.DataFrame:
 
     # Weight each game by the chance the player actually plays it
     upcoming["exp_fp"] = upcoming["proj_fp"] * upcoming["play_prob"]
+    return upcoming
 
+
+def summarize_week(upcoming: pd.DataFrame) -> pd.DataFrame:
     out = (
         upcoming.groupby(["PLAYER_NAME", "TEAM_ABBREVIATION"])
         .agg(games=("GAME_ID", "count"), exp_games=("play_prob", "sum"),

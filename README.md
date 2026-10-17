@@ -6,6 +6,8 @@ up off waivers.
 
 Scoring follows ESPN's default points league (editable in `src/config.py`).
 
+**Live dashboard: https://goofyanader.github.io/fantasy-basketball-ml/** (this week's rankings, injury status, and model accuracy)
+
 ## How it works
 
 1. **Data**: every player's box score from the last five NBA regular seasons,
@@ -105,6 +107,16 @@ python -m src.data --refresh
 python -m src.predict_week --players "Jalen Brunson" "Scottie Barnes"
 python -m src.predict_week --no-injuries   # assume everyone is healthy
 python -m src.injuries                     # view the current injury report
+```
+
+### Updating the dashboard
+
+The dashboard is a static page in `docs/`, built from `site/template.html`
+and served by GitHub Pages. NBA.com blocks cloud servers, so it's rebuilt
+locally once a week:
+
+```bash
+python -m src.build_site --refresh --publish   # new games -> rebuild -> push
 ```
 
 ## Limitations and next steps

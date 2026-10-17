@@ -1,22 +1,129 @@
 {
-  "Baseline: last 10 games avg": {
-    "mae": 10.040327457561045,
-    "mae_key_teammate_out": 10.983532366394533
+  "test_season": "2025-26",
+  "test_games": 26547,
+  "key_teammate_out_games": 3838,
+  "models": {
+    "Baseline: last 10 games avg": {
+      "mae": 10.040327457561045,
+      "mae_key_teammate_out": 10.983532366394533
+    },
+    "Baseline: season avg": {
+      "mae": 10.026433355617941,
+      "mae_key_teammate_out": 11.115502761792659
+    },
+    "Ridge regression": {
+      "mae": 9.621384732123861,
+      "mae_key_teammate_out": 10.20315463640835
+    },
+    "GBM without absence features": {
+      "mae": 9.645700162264333,
+      "mae_key_teammate_out": 10.71323054852469
+    },
+    "Gradient boosting": {
+      "mae": 9.485503491502476,
+      "mae_key_teammate_out": 10.041136854556871
+    }
   },
-  "Baseline: season avg": {
-    "mae": 10.026433355617941,
-    "mae_key_teammate_out": 11.115502761792659
-  },
-  "Ridge regression": {
-    "mae": 9.621384732123861,
-    "mae_key_teammate_out": 10.20315463640835
-  },
-  "GBM without absence features": {
-    "mae": 9.645700162264333,
-    "mae_key_teammate_out": 10.71323054852469
-  },
-  "Gradient boosting": {
-    "mae": 9.485503491502476,
-    "mae_key_teammate_out": 10.041136854556871
-  }
+  "weekly_rank_corr": [
+    {
+      "week_start": "2025-10-20",
+      "corr": 0.8952
+    },
+    {
+      "week_start": "2025-10-27",
+      "corr": 0.9051
+    },
+    {
+      "week_start": "2025-11-03",
+      "corr": 0.9115
+    },
+    {
+      "week_start": "2025-11-10",
+      "corr": 0.9054
+    },
+    {
+      "week_start": "2025-11-17",
+      "corr": 0.9096
+    },
+    {
+      "week_start": "2025-11-24",
+      "corr": 0.9093
+    },
+    {
+      "week_start": "2025-12-01",
+      "corr": 0.91
+    },
+    {
+      "week_start": "2025-12-08",
+      "corr": 0.8503
+    },
+    {
+      "week_start": "2025-12-15",
+      "corr": 0.8831
+    },
+    {
+      "week_start": "2025-12-22",
+      "corr": 0.9066
+    },
+    {
+      "week_start": "2025-12-29",
+      "corr": 0.9096
+    },
+    {
+      "week_start": "2026-01-05",
+      "corr": 0.9074
+    },
+    {
+      "week_start": "2026-01-12",
+      "corr": 0.8996
+    },
+    {
+      "week_start": "2026-01-19",
+      "corr": 0.9181
+    },
+    {
+      "week_start": "2026-01-26",
+      "corr": 0.9135
+    },
+    {
+      "week_start": "2026-02-02",
+      "corr": 0.868
+    },
+    {
+      "week_start": "2026-02-09",
+      "corr": 0.827
+    },
+    {
+      "week_start": "2026-02-16",
+      "corr": 0.855
+    },
+    {
+      "week_start": "2026-02-23",
+      "corr": 0.8929
+    },
+    {
+      "week_start": "2026-03-02",
+      "corr": 0.9041
+    },
+    {
+      "week_start": "2026-03-09",
+      "corr": 0.9083
+    },
+    {
+      "week_start": "2026-03-16",
+      "corr": 0.8954
+    },
+    {
+      "week_start": "2026-03-23",
+      "corr": 0.9267
+    },
+    {
+      "week_start": "2026-03-30",
+      "corr": 0.9093
+    },
+    {
+      "week_start": "2026-04-06",
+      "corr": 0.8589
+    }
+  ]
 }
