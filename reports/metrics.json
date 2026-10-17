@@ -1,0 +1,6 @@
+{
+  "Baseline: last 10 games avg": 10.040327457561045,
+  "Baseline: season avg": 10.026433355617941,
+  "Ridge regression": 9.77495781226269,
+  "Gradient boosting": 9.645700162264333
+}

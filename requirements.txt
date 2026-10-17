@@ -1,0 +1,8 @@
+nba_api
+pandas
+numpy
+scikit-learn
+matplotlib
+pyarrow
+joblib
+requests

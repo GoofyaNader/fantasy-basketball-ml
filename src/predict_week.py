@@ -1,0 +1,114 @@
+"""Rank players by projected fantasy points for a week.
+
+Usage:
+    python -m src.predict_week                     # the coming Mon-Sun week
+    python -m src.predict_week --start 2026-10-20  # any week
+    python -m src.predict_week --players "LeBron James" "Jalen Brunson"
+"""
+import argparse
+from datetime import date, timedelta
+
+import joblib
+import pandas as pd
+from nba_api.stats.endpoints import commonallplayers, scheduleleaguev2
+
+from src.config import CURRENT_SEASON, MODELS_DIR, REPORTS_DIR
+from src.data import load_all
+from src.features import FEATURES, build_features
+
+
+def get_schedule() -> pd.DataFrame:
+    """Every regular-season game this season: one row per team per game."""
+    games = scheduleleaguev2.ScheduleLeagueV2(season=CURRENT_SEASON, timeout=60).get_data_frames()[0]
+    games = games[games["gameId"].str.startswith("002")]  # 002 = regular season
+    games = games.assign(GAME_DATE=pd.to_datetime(games["gameDate"], format="%m/%d/%Y %H:%M:%S"))
+
+    home, away = games["homeTeam_teamTricode"], games["awayTeam_teamTricode"]
+    base = games[["gameId", "GAME_DATE"]].rename(columns={"gameId": "GAME_ID"})
+    return pd.concat([
+        base.assign(TEAM_ABBREVIATION=home, MATCHUP=home + " vs. " + away),
+        base.assign(TEAM_ABBREVIATION=away, MATCHUP=away + " @ " + home),
+    ], ignore_index=True)
+
+
+def get_rosters() -> pd.DataFrame:
+    """Current team for every active player (reflects offseason moves)."""
+    df = commonallplayers.CommonAllPlayers(
+        is_only_current_season=1, season=CURRENT_SEASON, timeout=60
+    ).get_data_frames()[0]
+    df = df[df["TEAM_ABBREVIATION"].fillna("") != ""]
+    return df.rename(columns={"PERSON_ID": "PLAYER_ID", "DISPLAY_FIRST_LAST": "PLAYER_NAME"})[
+        ["PLAYER_ID", "PLAYER_NAME", "TEAM_ABBREVIATION"]
+    ]
+
+
+def next_monday(today: date) -> date:
+    return today + timedelta(days=(7 - today.weekday()) % 7)
+
+
+def project_week(start: date) -> pd.DataFrame:
+    end = start + timedelta(days=7)
+    history = load_all()
+    schedule = get_schedule()
+    week_games = schedule[(schedule["GAME_DATE"] >= pd.Timestamp(start)) &
+                          (schedule["GAME_DATE"] < pd.Timestamp(end))]
+    if week_games.empty:
+        raise SystemExit(f"No regular-season games between {start} and {end}.")
+
+    # One placeholder row per player per game this week (stats unknown = NaN)
+    rosters = get_rosters()
+    rosters = rosters[rosters["PLAYER_ID"].isin(history["PLAYER_ID"])]  # need history to predict
+    future = rosters.merge(week_games, on="TEAM_ABBREVIATION")
+    future["SEASON"] = CURRENT_SEASON
+
+    feats = build_features(pd.concat([history, future], ignore_index=True))
+    upcoming = feats[feats["GAME_ID"].isin(week_games["GAME_ID"]) & feats["FP"].isna()].copy()
+
+    # Form features for later games this week would be computed from the earlier
+    # (not yet played) games, so give every game the form as of the week's start.
+    # Game context (rest, home/away, opponent) still varies per game.
+    upcoming = upcoming.sort_values(["PLAYER_ID", "GAME_DATE"])
+    form_cols = [c for c in FEATURES if c.startswith(("fp_", "min_")) or c == "games_played"]
+    upcoming[form_cols] = upcoming.groupby("PLAYER_ID")[form_cols].transform("first")
+
+    model = joblib.load(MODELS_DIR / "fp_model.joblib")
+    upcoming["proj_fp"] = model.predict(upcoming[FEATURES])
+
+    out = (
+        upcoming.groupby(["PLAYER_NAME", "TEAM_ABBREVIATION"])
+        .agg(games=("GAME_ID", "count"), proj_per_game=("proj_fp", "mean"),
+             proj_week=("proj_fp", "sum"), last10_avg=("fp_last10", "first"))
+        .reset_index()
+        .sort_values("proj_week", ascending=False)
+        .reset_index(drop=True)
+    )
+    out.index += 1
+    return out.round(1)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--start", type=date.fromisoformat, default=next_monday(date.today()),
+                        help="first day of the week (YYYY-MM-DD), default: next Monday")
+    parser.add_argument("--top", type=int, default=40)
+    parser.add_argument("--players", nargs="*", help="only show these players (e.g. your roster)")
+    args = parser.parse_args()
+
+    table = project_week(args.start)
+    REPORTS_DIR.mkdir(exist_ok=True)
+    csv_path = REPORTS_DIR / f"projections_{args.start}.csv"
+    table.to_csv(csv_path, index_label="rank")
+
+    if args.players:
+        wanted = [p.lower() for p in args.players]
+        table = table[table["PLAYER_NAME"].str.lower().isin(wanted)]
+    else:
+        table = table.head(args.top)
+
+    print(f"\nProjected fantasy points, week of {args.start}\n")
+    print(table.to_string())
+    print(f"\nFull rankings saved to {csv_path}")
+
+
+if __name__ == "__main__":
+    main()
